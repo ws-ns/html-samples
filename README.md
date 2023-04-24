@@ -1,2 +1,2 @@
 # html-sample
-HTML samples
+"html-sample" has various HTML samples.

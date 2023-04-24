@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+/* @import url(http://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+@import url(http://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap);
+
+.samplefont {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: 'Noto Serif JP', sans;	
+}

@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
+
+* {
+    box-sizing: border-box;
+}
+
+.fade-box {
+    position: relative;
+    margin: 1.0em auto;
+    padding: 1.0em;
+    font-size: 20px;
+    width: 50%;
+    height: auto;
+    border: 1px solid #999999;
+    z-index: 0;
+}
+
+.fade-box.fade {
+    height: 160px;
+    overflow: hidden;
+}
+
+.fade-box.fade::before {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    content: "";
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient( to bottom, #ffffff00 0%, #ffffffff 80% );
+    z-index: 1;
+}
+
+.fade-box div.more-button {
+    position: absolute;
+    display: none;
+    margin: 0;
+    padding: 10px 20px;
+    content: "";
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    right: auto;
+    transform: translateX( -50% );
+    width: auto;
+    height: auto;
+    color: #ffffff;
+    background-color: #0000ff;
+    border-radius: 4px;
+    transition: 0.5s;
+    opacity: 0.0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.fade-box.fade div.more-button {
+    display: block;
+    opacity: 1.0;
+}
+
+@media ( hover: hover ) {
+    .fade-box.fade div.more-button:hover {
+        opacity: 0.5;
+    }
+}

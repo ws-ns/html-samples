@@ -1,0 +1,145 @@
+@charset "utf-8";
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
+
+* {
+    box-sizing: border-box;
+}
+
+label.ws-input {
+    margin: 10px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+div.ws-label {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+
+div.ws-label.required::after {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    content: "*";
+    color: #ff0000;
+    font-size: 16px;
+    top: 0;
+    left: 105%;
+}
+
+input[type="text"] {
+    margin: 0;
+    padding: 10px 20px;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+    border-radius: 4px;
+    width: calc( 100% - 100px - 10px );
+    outline: 0;
+    transition: 0.5s;
+}
+
+input[type="text"]:focus {
+    border: 1px solid #0000ff;
+    background: #ffffcc;
+}
+
+@media ( hover: hover ) {
+    input[type="text"]:hover {
+        border: 1px solid #6666ff;
+        background: #ffffee;
+    }
+}
+
+input[type="submit"] {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #0000ff;
+    border-radius: 4px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    opacity: 1.0;
+    transition: 0.5s;
+}
+
+@media ( hover: hover ) {
+    input[type="submit"]:hover {
+        opacity: 0.5;
+    }
+}
+
+.ws-tab-box {
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 20px;
+    width: 80%;
+    height: auto;
+    z-index: 0;
+}
+
+.ws-tab-buttons {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.ws-tab-button {
+    margin: 0 2px 0 0;
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 1px solid #dddddd;
+    background: #eeeeee;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.ws-tab-button.active {
+    border: 1px solid #cccccc;
+    background: #ffffcc;
+}
+
+@media ( hover: hover ) {
+    .ws-tab-button:hover {
+        border: 1px solid #9999ff;
+        background: #ffffff;
+    }
+}
+
+.ws-tab-contents {
+    margin: -1px auto 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100px;
+    border: 1px solid #cccccc;
+}
+
+.ws-tab-content {
+    display: none;
+    margin: 0;
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
+    background: #ffffff;
+}
+
+.ws-tab-content.active {
+    display: block;
+}

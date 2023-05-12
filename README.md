@@ -9,3 +9,9 @@ Google Fonts をCDN経由で読み込むサンプル
 
 ## tab-box
 タブ切り替え要素．脱jQueryで実装．
+
+## google-chart
+Google Chart を使ってグラフを表示
+
+## chartjs
+Chart.js を使ってグラフを表示

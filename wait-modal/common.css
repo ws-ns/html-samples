@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#ws-wait-modal {
+    /* display: none; */
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: rgb( 0 0 0 / 0.2 );
+    z-index: 9999;
+}
+
+.ws-wait-anim {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 160px;
+    height: 160px;
+    top: calc( 50% - 80px );
+    left: calc( 50% - 80px );
+    background: transparent;
+    animation: anim-wait 2s linear infinite;
+}
+
+.ws-wait-anim::before {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    top: 70px;
+    left: 70px;
+    background: transparent;
+    border-radius: 20px;
+    box-shadow:
+        -40px -40px 4px rgb( 0 0 0 / 0.2 ),
+          0px -56px 4px rgb( 0 0 0 / 0.4 ),
+         40px -40px 4px rgb( 0 0 0 / 0.6 ),
+         56px   0px 4px rgb( 0 0 0 / 0.8 ),
+         40px  40px 4px rgb( 0 0 0 / 1.0 ),
+          0px  56px 4px rgb( 0 0 0 / 0.8 ),
+        -40px  40px 4px rgb( 0 0 0 / 0.6 ),
+        -56px   0px 4px rgb( 0 0 0 / 0.4 )
+    ;
+}
+
+@keyframes anim-wait {
+    0%   { transform: rotate(   0deg ); }
+    100% { transform: rotate( 360deg ); }
+}

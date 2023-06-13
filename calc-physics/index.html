@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> ほわいとソフトウェア </title>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="./common.css" />
+  <script src="./common.js"></script>
+</head>
+
+<body>
+
+  <section class="ws-calc-area">
+    <div class="ws-input-title">
+      等加速度運動
+    </div>
+    <div class="ws-input-info">
+      経過時間，距離，最終速度のいずれか入力
+    </div>
+    <div class="ws-input-field">
+      <div>
+        加速度
+      </div>
+      <div>
+        <input type="number" id="val-a" value="9.80665" /> m/s<sup>2</sup>
+      </div>
+    </div>
+    <div class="ws-input-field">
+      <div>
+        経過時間
+      </div>
+      <div>
+        <input type="number" id="val-time" value="" /> sec
+      </div>
+    </div>
+    <div class="ws-input-field">
+      <div>
+        距離
+      </div>
+      <div>
+        <input type="number" id="val-distance" value="" /> m
+      </div>
+    </div>
+    <div class="ws-input-field">
+      <div>
+        初速
+      </div>
+      <div>
+        <div><input type="number" id="val-velocity-first-ms"  step="0.01" value="0.0" /> m/s</div>
+        <div><input type="number" id="val-velocity-first-kmh" step="0.01" value="0.0" /> km/h</div>
+      </div>
+    </div>
+    <div class="ws-input-field">
+      <div>
+        最終速度
+      </div>
+      <div>
+        <div><input type="number" id="val-velocity-final-ms"  step="0.01" value="" /> m/s</div>
+        <div><input type="number" id="val-velocity-final-kmh" step="0.01" value="" /> km/h</div>
+      </div>
+    </div>
+    <div class="ws-buttons">
+      <button class="ws-submit" onclick="runCalc()" >計算する</button>
+      <button class="ws-reset"  onclick="runReset()">入力欄を初期化</button>
+    </div>
+
+    <hr />
+
+    <div id="ws-draw-area">
+      <div id="ws-draw-arrow"></div>
+      <div id="ws-result-val-v0">初速</div>
+      <div id="ws-result-val-v">最終速度</div>
+      <div id="ws-result-val-d">距離</div>
+      <div id="ws-result-val-t">時間</div>
+      <div id="ws-result-val-a">加速度</div>
+    </div>
+
+  </section>
+
+</body>
+
+</html>

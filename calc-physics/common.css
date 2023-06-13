@@ -1,0 +1,284 @@
+@charset "utf-8";
+
+/* あ 物理計算：等加速度運動（自由落下を含む） */
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #333;
+}
+
+.ws-calc-area {
+    margin: 1.0rem auto;
+    padding: 1.0rem;
+    width: calc( 100% - 2.0rem );
+    max-width: 600px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ccc;
+    border-radius: 4px;
+    container: ws-calc-area / inline-size;
+}
+
+@container ws-calc-area ( min-width: 0px ) {
+    .ws-input-title {
+        margin: 1.0cqw 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        font-size: clamp( 20px, 5.0cqw, 30px );
+        font-weight: 700;
+    }
+    
+    .ws-input-info {
+        margin: 1.0cqw 0;
+        padding: 0;
+        width: 100%;
+        text-align: center;
+        font-size: clamp( 14px, 2.8cqw, 18px );
+        font-weight: 400;
+    }
+
+    .ws-input-field {
+        margin: 2.0cqw 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .ws-input-field > div:nth-child(1) {
+        font-size: clamp( 16px, 3.0cqw, 20px );
+        text-align: right;
+        width: calc( 35% - 10px );
+    }
+    
+    .ws-input-field > div:nth-child(2) {
+        font-size: clamp( 16px, 3.0cqw, 20px );
+        text-align: left;
+        width: calc( 65% - 10px );
+    }
+    
+    input[type="number"] {
+        margin: 2px 0;
+        padding: 0.5cqw 0 0.5cqw 1.0cqw;
+        width: calc( 100% - 10.0cqw );
+        max-width: 30.0cqw;
+        font-size: clamp( 16px, 3.0cqw, 20px );
+        text-align: right;
+        outline: 0;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 2px #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="number"]:active,
+    input[type="number"]:focus {
+        border: 1px solid #00f;
+        box-shadow: 0 0 4px #00f;
+    }
+
+    .ws-buttons {
+        margin: 3.0cqw 0 1.0cqw;
+        padding: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .ws-submit {
+        display: block;
+        margin: 0;
+        padding: 1.0cqw 2.0cqw;
+        color: #fff;
+        font-size: clamp( 18px, 4.0cqw, 24px );
+        font-weight: 700;
+        background: #009;
+        outline: 0;
+        border: 0;
+        box-shadow: 0 0 2px #ccf;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .ws-submit.active,
+    .ws-submit.focus {
+        box-shadow: 0 0 4px #f00;
+    }
+
+    .ws-reset {
+        display: block;
+        margin: 0;
+        padding: 1.0cqw 2.0cqw;
+        color: #666;
+        font-size: clamp( 18px, 4.0cqw, 24px );
+        font-weight: 700;
+        background: #ccc;
+        outline: 0;
+        border: 0;
+        box-shadow: 0 0 2px #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    .ws-reset.active,
+    .ws-reset.focus {
+        box-shadow: 0 0 4px #f00;
+    }
+
+    @media ( hover: hover ) {
+        .ws-submit:hover {
+            opacity: 0.5;
+        }
+        .ws-reset:hover {
+            opacity: 0.5;
+        }
+    }
+
+    hr {
+        margin: 4.0cqw 0;
+        width: 100%;
+        border: 1px solid #ccc;
+        height: 1px;
+        box-shadow: 0 0 2px #ccc;
+    }
+
+    #ws-draw-area {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 50.0cqw
+    }
+
+    #ws-draw-arrow {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 5%;
+        width: 2px;
+        height: 100%;
+        background: #000;
+    }
+
+    #ws-draw-arrow::before {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        content: "";
+        left: 0;
+        top: 10%;
+        width: 8.0cqw;
+        height: 80%;
+        border: 2px solid #000;
+        border-radius: 0 100% 100% 0;
+        clip-path: polygon( 50% 0, 100% 0, 100% 100%, 50% 100% );
+    }
+
+    #ws-draw-arrow::after {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 2.0cqw;
+        height: 2.0cqw;
+        border-left: 2px solid #000;
+        border-bottom: 2px solid #000;
+        transform-origin: left bottom;
+        transform: translateX( 1px ) rotate( -45deg );
+    }
+
+    #ws-result-val-v0 {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: 0;
+        left: 20%;
+        font-size: clamp( 12px, 2.4cqw, 16px );
+    }
+
+    #ws-result-val-v {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        bottom: 0;
+        left: 20%;
+        font-size: clamp( 12px, 2.4cqw, 16px );
+    }
+
+    #ws-result-val-d {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: calc( 50% - 2.25em );
+        left: 20%;
+        font-size: clamp( 12px, 2.4cqw, 16px );
+    }
+
+    #ws-result-val-t {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: calc( 50% - 0.75em );
+        left: 20%;
+        font-size: clamp( 12px, 2.4cqw, 16px );
+    }
+
+    #ws-result-val-a {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        top: calc( 50% + 0.75em );
+        left: 20%;
+        font-size: clamp( 12px, 2.4cqw, 16px );
+    }
+
+    @media ( min-width: 600px ) {
+        #ws-draw-arrow {
+            left: 25%;
+        }
+
+        #ws-result-val-v0 {
+            left: 40%;
+        }
+
+        #ws-result-val-v {
+            left: 40%;
+        }
+
+        #ws-result-val-d {
+            left: 40%;
+        }
+
+        #ws-result-val-t {
+            left: 40%;
+        }
+
+        #ws-result-val-a {
+            left: 40%;
+        }
+        
+    }
+
+}

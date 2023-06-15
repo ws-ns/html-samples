@@ -15,3 +15,6 @@ Google Chart を使ってグラフを表示
 
 ## chartjs
 Chart.js を使ってグラフを表示
+
+## calc-physics
+等加速度運動を計算

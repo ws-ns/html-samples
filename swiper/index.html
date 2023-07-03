@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> Swiper | ほわいとソフトウェア </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <style>
+    .swiper {
+        width: 600px;
+        aspect-ratio: 1125 / 750;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Slider main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <img src="./images/img1.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img2.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img3.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img4.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img5.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img6.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img7.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img8.jpeg" width="1125" height="750" />
+      </div>
+      <div class="swiper-slide">
+        <img src="./images/img9.jpeg" width="1125" height="750" />
+      </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>  
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'vertical',
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
+  </script>
+
+</body>
+
+</html>
+

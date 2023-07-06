@@ -10,6 +10,9 @@ Google Fonts をCDN経由で読み込むサンプル
 ## tab-box
 タブ切り替え要素．脱jQueryで実装．
 
+## read-more
+「もっと見る」のサンプル
+
 ## google-chart
 Google Chart を使ってグラフを表示
 
@@ -18,3 +21,12 @@ Chart.js を使ってグラフを表示
 
 ## calc-physics
 等加速度運動を計算
+
+## css-samples
+CSSによるデザイン表現のサンプル
+
+## wait-modal
+「待ちアニメーション」のサンプル
+
+## swiper
+swiperライブラリによるカルーセル

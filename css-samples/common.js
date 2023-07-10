@@ -5,24 +5,31 @@
 // ドキュメント読み終わったら実行
 document.addEventListener('DOMContentLoaded', function() {
 
+    // const styleElem = document.createElement('style');
+    // document.head.appendChild(styleElem);
+    // const sheet = styleElem.sheet;
+
+    // for ( no = 0 ; no < 40 ; no++ ) {
+    //     sheet.insertRule( '.ws-parapara > span:nth-child('+(no+1)+') { animation-delay: '+(0.20*no).toFixed(2)+'s !important; } ' );
+    // }
+
+
     let elem, elems;
 
-    // css-sample-1
-    elem = document.querySelector('#css-sample-1');
-    for ( let no = 0; no < elem.children.length; no++ ) {
-        // setTimeout( function() {
-        //     elem.children[no].classList.add('show');
-        // }, 100*no );
-        elem.children[no].style.animationDelay = ( 0.2*no ) + 's';
+    // css-sample-appear-1
+    elems = document.querySelectorAll('#css-sample-appear-1 span');
+    if ( elems && elems.length > 0 ) {
+        for ( let no = 0; no < elems.length; no++ ) {
+            elems[no].style.animationDelay = ( 0.2*no ).toFixed(2) + 's';
+        }
     }
 
-    // css-sample-2
-    elem = document.querySelector('#css-sample-2');
-    for ( let no = 0; no < elem.children.length; no++ ) {
-        // setTimeout( function() {
-        //     elem.children[no].classList.add('show');
-        // }, 100*no );
-        elem.children[no].style.animationDelay = ( 0.2*no ) + 's';
+    // css-sample-appear-2
+    elems = document.querySelectorAll('#css-sample-appear-2 span');
+    if ( elems && elems.length > 0 ) {
+        for ( let no = 0; no < elems.length; no++ ) {
+            elems[no].style.animationDelay = ( 0.2*no ).toFixed(2) + 's';
+        }
     }
 
 });

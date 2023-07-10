@@ -24,16 +24,16 @@ body {
 
 
 .css-sample {
-    margin: 2.0rem 0;
+    margin: 1.0rem 0;
     padding: 0;
 }
 
 
-#css-sample-1 {
+#css-sample-appear-1 {
     text-align:center;
 }
 
-#css-sample-1 span {
+#css-sample-appear-1 span {
     display: inline-block;
     font-family: serif;
     font-size: 2.0rem;
@@ -41,10 +41,10 @@ body {
     opacity: 0.0;
     transform: scale( 1.0, 0.01 );
     transform-origin: center bottom;
-    animation: anim-sample-1 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
+    animation: anim-sample-appear-1 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
 }
 
-@keyframes anim-sample-1 {
+@keyframes anim-sample-appear-1 {
     0% {
         opacity: 0.0;
         transform: scale( 1.0, 0.01 );
@@ -64,11 +64,11 @@ body {
 }
 
 
-#css-sample-2 {
+#css-sample-appear-2 {
     text-align:center;
 }
 
-#css-sample-2 span {
+#css-sample-appear-2 span {
     display: inline-block;
     font-family: serif;
     font-size: 2.0rem;
@@ -76,10 +76,10 @@ body {
     opacity: 0.0;
     transform: scale( 0.01, 0.01 ) translate( 0px, -200px ) rotate( 0deg );
     transform-origin: center center;
-    animation: anim-sample-2 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
+    animation: anim-sample-appear-2 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
 }
 
-@keyframes anim-sample-2 {
+@keyframes anim-sample-appear-2 {
     0% {
         opacity: 0.0;
         transform: scale( 0.01, 0.01 ) translate( 0px, -200px ) rotate( 0deg );
@@ -99,7 +99,7 @@ body {
 }
 
 
-#css-sample-3 {
+#css-sample-cut-1 {
     position: relative;
     width: 100%;
     height: 200px;
@@ -110,7 +110,7 @@ body {
     background-size: cover;
 }
 
-#css-sample-3 div {
+#css-sample-cut-1 div {
     position: absolute;
     margin: 0;
     padding: 0;
@@ -123,10 +123,10 @@ body {
     mix-blend-mode: difference;
     display: flex;
     align-items: center;
-    animation: anim-sample-3 20.0s linear infinite;
+    animation: anim-sample-cut-1 20.0s linear infinite;
 }
 
-@keyframes anim-sample-3 {
+@keyframes anim-sample-cut-1 {
     0% {
         left: 100%;
         transform: scale( 1.0, 1.0 );
@@ -142,7 +142,7 @@ body {
 }
 
 
-#css-sample-4 div {
+#css-sample-cut-2 div {
     margin: 0 auto;
     font-family: sans-serif;
     font-size: 3.0rem;
@@ -153,21 +153,21 @@ body {
     background-size: 300% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: anim-sample-4 2s infinite linear;
+    animation: anim-sample-cut-2 2s infinite linear;
 }
 
-@keyframes anim-sample-4 {
+@keyframes anim-sample-cut-2 {
     0%   { background-position: left; }
     100% { background-position: right; }
 }
 
 
-#css-sample-5 {
+#css-sample-cut-3 {
     width: 100%;
     height: auto;
 }
 
-#css-sample-5 div {
+#css-sample-cut-3 div {
     margin: 0 auto;
     padding: 0;
     width: fit-content;
@@ -183,7 +183,8 @@ body {
 }
 
 
-#css-sample-6 div {
+#css-sample-btn-1 div {
+    position: relative;
     margin: 0 auto;
     padding: 1.0rem 2.0rem;
     width: fit-content;
@@ -195,13 +196,121 @@ body {
                 inset -4px -4px 4px rgb(   0   0   0 / 0.5 );
     transition: 0.5s;
     cursor: pointer;
+    overflow: hidden;
 }
 
-#css-sample-6 div:hover {
-    color: #009;
-    background: rgb( 255 224 128 / 1.0 );
-    transform: translate( 4px, 4px );
-    box-shadow: 2px 2px 4px #ccc,
-                inset  2px  2px 4px rgb( 255 255 255 / 0.5 ),
-                inset -2px -2px 4px rgb(   0   0   0 / 0.5 );
+@media ( hover: hover ) {
+    #css-sample-btn-1 div:hover {
+        color: #009;
+        background: rgb( 255 224 128 / 1.0 );
+        transform: translate( 4px, 4px );
+        box-shadow: 2px 2px 4px #ccc,
+                    inset  2px  2px 4px rgb( 255 255 255 / 0.5 ),
+                    inset -2px -2px 4px rgb(   0   0   0 / 0.5 );
+    }
+}
+
+#css-sample-btn-1 div::before {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    top: -10%;
+    left: -40px;
+    width: 20px;
+    height: 120%;
+    transform: rotate( 15deg );
+    background: rgb( 255 255 255 / 0.8 );
+    filter: blur( 10px );
+    animation: anim-sample-btn-1 10.0s linear infinite;
+}
+
+@keyframes anim-sample-btn-1 {
+    0% {
+        left: -40px;
+    }
+    95% {
+        left: -40px;
+    }
+    100% {
+        left: calc( 100% + 20px );
+    }
+}
+
+
+#css-sample-btn-2 div {
+    position: relative;
+    margin: 0 auto;
+    padding: 1.0rem 2.0rem;
+    width: fit-content;
+    text-align: center;
+    background: rgb( 255 160 96 / 1.0 );
+    border-radius: 2.0rem;
+    box-shadow: 8px 8px 4px #ccc,
+                inset  4px  4px 4px rgb( 255 255 255 / 0.5 ),
+                inset -4px -4px 4px rgb(   0   0   0 / 0.5 );
+    transition: 0.5s;
+    cursor: pointer;
+    animation: anim-sample-btn-2 10.0s infinite;
+}
+
+@media ( hover: hover ) {
+    #css-sample-btn-2 div:hover {
+        color: #009;
+        background: rgb( 255 224 128 / 1.0 );
+        transform: translate( 4px, 4px );
+        box-shadow: 2px 2px 4px #ccc,
+                    inset  2px  2px 4px rgb( 255 255 255 / 0.5 ),
+                    inset -2px -2px 4px rgb(   0   0   0 / 0.5 );
+    }
+}
+
+@keyframes anim-sample-btn-2 {
+    0% {
+        transform: none;
+    }
+    42% {
+        transform: none;
+    }
+    44% {
+        transform: scale( 1.5, 1.5 );
+    }
+    48% {
+        transform: scale( 0.5, 0.5 );
+    }
+    50% {
+        transform: none;
+    }
+    96% {
+        transform: none;
+    }
+    97% {
+        transform: rotate( 10deg );
+    }
+    99% {
+        transform: rotate( -10deg );
+    }
+    100% {
+        transform: none;
+    }
+}
+
+
+#css-sample-clip-1 {
+    margin: 0 auto;
+    padding: 0;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient( to bottom, #ffff00 0%, #ffffff 50%, #ff00ff 100% );
+    clip-path: polygon( 50% 0, 100% 50%, 50% 100%, 0 50%, 50% 0 );
+    animation: anim-sample-clip-1 5.0s infinite;
+}
+
+@keyframes anim-sample-clip-1 {
+    0% {
+        clip-path: polygon( 50% 0, 100% 50%, 50% 100%, 0 50%, 50% 0 );
+    }
+    50% {
+        clip-path: polygon( 0, 100% 0%, 100% 100%, 0 100%, 0 0 );
+    }
 }

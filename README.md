@@ -1,5 +1,6 @@
 # html-samples
-"html-samples" はさまざまなHTMLやCSSのサンプル集．
+さまざまなHTMLやCSSのサンプル集．
+今のjavascriptはjQueryを要しないことが多いので，極力jQueryなしで書いている．
 
 ## [google-fonts](./google-fonts/)
 Google Fonts をCDN経由で読み込むサンプル

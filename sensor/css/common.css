@@ -1,0 +1,104 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #eeffee;
+}
+
+div.compass {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+    border: 4px solid #666666;
+    border-radius: 100px;
+    background-image: radial-gradient( #ffffff 0%, #ffffff 60%, #999999 90%);
+}
+div.compass div.ns,
+div.compass div.we {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    font-size: 12px;
+    color: #333333;
+    font-family: sans;
+    font-weight: 700;
+}
+div.compass div.ns::before {
+    position: absolute;
+    content: "N";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    text-align: center;
+}
+div.compass div.ns::after {
+    position: absolute;
+    content: "S";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: auto;
+    text-align: center;
+}
+div.compass div.we::before {
+    position: absolute;
+    content: "W";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: calc( 50% - 0.75em );
+    bottom: auto;
+    left: 0;
+    right: auto;
+    text-align: left;
+}
+div.compass div.we::after {
+    position: absolute;
+    content: "E";
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    top: calc( 50% - 0.75em );
+    bottom: auto;
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+div.compass img.needle {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 64px;
+    height: 64px;
+    top: calc( 50% - 64px*0.5 );
+    left: calc( 50% - 64px*0.5 );
+    opacity: 0.75;
+}

@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////
 //	acc.js
-//		Last Change: Fri 24 February 2023  16:21:50
+//		Last Change: Thu 13 July 2023  17:43:32
 //////////////////////////////////////////////////////////////////////
 
 
@@ -10,9 +10,33 @@ var _acc_elem2_ = false;
 function startACC(id1, id2) {
     _acc_elem1_ = document.getElementById(id1);
     _acc_elem2_ = document.getElementById(id2);
-    
-    window.addEventListener('devicemotion', accDeviceMotion, true);
-    window.addEventListener('deviceorientation', accDeviceOrientation, true);
+
+    if ( window.DeviceMotionEvent && window.DeviceMotionEvent.requestPermission ) {
+        DeviceMotionEvent.requestPermission()
+            .then( (state) => {
+                if ( state === 'granted' ) {
+                    window.addEventListener('devicemotion', accDeviceMotion, true);
+                    window.addEventListener('deviceorientation', accDeviceOrientation, true);
+                }
+            })
+            .catch( (err) => console.error(err) );
+    }
+    else {
+        _acc_elem1_.textContent = '（加速度センサなし）';
+    }
+
+    if ( window.DeviceOrientationEvent && window.DeviceOrientationEvent.requestPermission ) {
+        DeviceOrientationEvent.requestPermission()
+            .then( (state) => {
+                if ( state === 'granted' ) {
+                    window.addEventListener('deviceorientation', accDeviceOrientation, true);
+                }
+            })
+            .catch( (err) => console.error(err) );
+    }
+    else {
+        _acc_elem2_.textContent = '（Gセンサなし）';
+    }
 
     return;
 }

@@ -26,8 +26,10 @@
 
     <script>
       // 処理開始
-      startGPS('gps');
-      startACC('acc1', 'acc2');
+      document.addEventListener('DOMContentLoaded', function() {
+          startGPS('gps');
+          startACC('acc1', 'acc2');
+      });
     </script>
 
   </body>

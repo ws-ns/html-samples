@@ -12,24 +12,29 @@
 
   <body>
 
-    <table cellspacing="0" cellpadding="8" style="margin: 8px auto;">
-      <tr bgcolor="#ccffcc"> <th> GPS </th> </tr>
-      <tr> <td>
-	  <div id="gps"></div>
-      </td> </tr>
-      <tr bgcolor="#ccffcc"> <th> ACC </th> </tr>
-      <tr> <td>
-	  <div id="acc1"></div>
-	  <div id="acc2"></div>
-      </td> </tr>
-    </table>
+    <nav class="ws-button">
+      <button onclick="startSensors()">開始</button>
+    </nav>
+
+    <h2 class="ws-title">
+      GPS
+    </h2>
+
+    <div class="ws-sensor" id="gps"></div>
+
+    <h2 class="ws-title">
+      ACC
+    </h2>
+
+    <div class="ws-sensor" id="acc1"></div>
+    <div class="ws-sensor" id="acc2"></div>
 
     <script>
       // 処理開始
-      document.addEventListener('DOMContentLoaded', function() {
+      function startSensors() {
           startGPS('gps');
           startACC('acc1', 'acc2');
-      });
+      }
     </script>
 
   </body>

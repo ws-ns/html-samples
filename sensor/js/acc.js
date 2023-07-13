@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////
 //	acc.js
-//		Last Change: Thu 13 July 2023  17:43:32
+//		Last Change: Thu 13 July 2023  17:50:56
 //////////////////////////////////////////////////////////////////////
 
 
@@ -16,7 +16,6 @@ function startACC(id1, id2) {
             .then( (state) => {
                 if ( state === 'granted' ) {
                     window.addEventListener('devicemotion', accDeviceMotion, true);
-                    window.addEventListener('deviceorientation', accDeviceOrientation, true);
                 }
             })
             .catch( (err) => console.error(err) );

@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: clamp( 16px, 1.2vw, 20px );
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #f8fff8;
+}
+
+canvas#canvas {
+    width: 800px;
+    height: 600px;
+    box-sizing: content-box;
+    border: 2px solid #cccccc;
+    box-shadow: 0 0 4px #cccccc;
+}
+
+img#canvas-data {
+    width: 200px;
+    height: 150px;
+    box-sizing: content-box;
+    border: 2px solid #cccccc;
+    box-shadow: 0 0 4px #cccccc;
+}

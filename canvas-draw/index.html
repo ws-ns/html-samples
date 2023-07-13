@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="ほわいとソフトウェアのページです．わたしが作成した参考ウェブページです" />
+  <title> Canvasテスト - ほわいとソフトウェア </title>
+  <link rel="stylesheet" href="./common.css" />
+  <script src="./common.js"></script>
+</head>
+
+<body>
+
+  <header>
+    <h1>Canvasテスト - ほわいとソフトウェア</h1>
+  </header>
+
+  <section class="contents-box">
+
+    <div>
+      <select onchange="setLineWidth(this.value)">
+        <option value="1">極細</option>
+        <option value="2">細</option>
+        <option value="3">やや細</option>
+        <option value="4">微細</option>
+        <option value="5" selected>普通</option>
+        <option value="6">微太</option>
+        <option value="8">やや太</option>
+        <option value="10">太</option>
+        <option value="15">極太</option>
+        <option value="20">ごんぶと</option>
+      </select>
+      <select onchange="setLineColor(this.value)">
+        <option value="rgb(0,0,0)" selected>黒</option>
+        <option value="rgb(255,0,0)">赤</option>
+        <option value="rgb(0,255,0)">緑</option>
+        <option value="rgb(0,0,255)">青</option>
+        <option value="rgb(255,255,0)">黄</option>
+        <option value="rgb(0,255,255)">水色</option>
+        <option value="rgb(255,0,255)">シアン</option>
+        <option value="rgb(255,255,255)">白</option>
+      </select>
+    </div>
+    <div><canvas id="canvas"></canvas></div>
+
+    <div><button onclick="canvasToData()">copy canvas data to png</button></div>
+
+    <!-- div><textarea readonly id="canvas-data" style="width:800px;height:200px;"></textarea></div -->
+
+    <div><img id="canvas-data" /></div>
+
+  </section>
+
+</body>
+
+</html>

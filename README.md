@@ -31,3 +31,6 @@ CSSによるデザイン表現のサンプル
 
 ## [swiper](./swiper/)
 swiperライブラリによるカルーセル
+
+## [sensor](./sensor/)
+javascriptでGPSと加速度計測

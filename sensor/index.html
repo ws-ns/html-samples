@@ -12,18 +12,16 @@
 
   <body>
 
-    <nav class="ws-button">
-      <button onclick="startSensors()">開始</button>
-    </nav>
-
     <h2 class="ws-title">
       GPS
+      <button onclick="startGPS('GPS')">開始</button>
     </h2>
 
     <div class="ws-sensor" id="gps"></div>
 
     <h2 class="ws-title">
       ACC
+      <button onclick="startACC('acc1','acc2')">開始</button>
     </h2>
 
     <div class="ws-sensor" id="acc1"></div>

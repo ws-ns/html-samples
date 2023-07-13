@@ -17,20 +17,39 @@ body {
     background-color: #eeffee;
 }
 
-nav.ws-button {
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-}
-
 h2.ws-title {
     margin: 0.5rem auto;
     padding: 0.5rem 1.0rem;
     width: 100%;
+    max-width: 800px;
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
     background: #99ff99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.0rem;
+}
+
+h2 button {
+    margin: 0;
+    padding: 0.2rem 1.0rem;
+    border: 0;
+    outline: 0;
+    background: #f8f8f8;
+    box-shadow: 0 0 4px #ccc,
+                4px 4px 4px #fff3 inset,
+                -4px -4px 4px #0002 inset;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+@media ( hover: hover ) {
+    h2 button:hover {
+        opacity: 0.5;
+    }
 }
 
 div.ws-sensor {

@@ -4,21 +4,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title> GPSと加速度 - ほわいとソフトウェア </title>
+    <title> GPS - ほわいとソフトウェア </title>
     <link rel="stylesheet" href="./css/common.css" />
     <script src="./js/gps.js"></script>
     <script src="./js/acc.js"></script>
   </head>
 
-  <body style="text-align:center;">
+  <body>
 
-    <div>
-      <a href="gps.html">GPS</a>
-    </div>
+    <h2 class="ws-title">
+      GPS
+      <button onclick="startGPS('gps')">開始</button>
+    </h2>
 
-    <div>
-      <a href="acc.html">加速度</a>
-    </div>
+    <div class="ws-sensor" id="gps"></div>
 
   </body>
 

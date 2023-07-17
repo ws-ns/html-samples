@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> Slick | ほわいとソフトウェア </title>
+  <!-- slickのCSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        
+    }
+    .slick-item {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+    .slick-item img {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+    .slick-dots {
+        bottom: 0;
+        z-index: 1;
+    }
+    .slick-arrow {
+        z-index: 1;
+    }
+    .slick-next {
+        right: 0;
+    }
+    .slick-prev {
+        left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Slider main container -->
+  <div class="slick">
+    <!-- Slides -->
+    <div class="slick-item">
+      <img src="./images/img1.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img2.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img3.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img4.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img5.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img6.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img7.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img8.jpeg" width="1125" height="750" />
+    </div>
+    <div class="slick-item">
+      <img src="./images/img9.jpeg" width="1125" height="750" />
+    </div>
+  </div>  
+
+  <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+
+  <!-- slickのJavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script>
+    const $slick = $('.slick').slick({
+        autoplay: true,
+        autoplaySpeed: 2000,
+        speed: 800,
+        dots: true,
+        arrows: true,
+        infinite: true,
+    });
+  </script>
+
+</body>
+
+</html>
+

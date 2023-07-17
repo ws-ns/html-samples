@@ -29,8 +29,11 @@ CSSによるデザイン表現のサンプル
 ## [wait-modal](./wait-modal/)
 「待ちアニメーション」のサンプル
 
+## [slick](./slick/)
+slickライブラリによるカルーセル（スライダー）
+
 ## [swiper](./swiper/)
-swiperライブラリによるカルーセル
+swiperライブラリによるカルーセル（スライダー）
 
 ## [sensor](./sensor/)
 javascriptでGPSと加速度計測

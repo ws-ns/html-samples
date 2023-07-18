@@ -26,6 +26,9 @@ Chart.js を使ってグラフを表示
 ## [css-samples](./css-samples/)
 CSSによるデザイン表現のサンプル
 
+## [check-radio](./check-radio/)
+チェックボックスやラジオボタンのサンプル
+
 ## [wait-modal](./wait-modal/)
 「待ちアニメーション」のサンプル
 

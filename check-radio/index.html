@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> Checkbox and Radio | ほわいとソフトウェア </title>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <style>
+    label#ws-check-sample-1 input[type="checkbox"] {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]) {
+        position: relative;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        height: 30px;
+        border-radius: 30px;
+        box-shadow: 0 0 2px #ccc,
+                    2px 2px 2px rgb( 0 0 0 / 0.1 ) inset,
+                    -2px -2px 2px rgb( 255 255 255 / 0.5 ) inset;
+        transition: 0.5s;
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:not(:checked)) {
+        background: #eee;
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:not(:checked))::before {
+        position: absolute;
+        content: "OFF";
+        color: #999;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:not(:checked))::after {
+        position: absolute;
+        content: "";
+        top: 2px;
+        left: 2px;
+        bottom: auto;
+        right: auto;
+        width: 26px;
+        height: 26px;
+        background: #ccc;
+        box-shadow: 2px 2px 2px rgb( 255 255 255 / 0.5 ) inset,
+                    -2px -2px 2px rgb( 0 0 0 / 0.1 ) inset;
+        border-radius: 26px;
+        transition: 0.5s;
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:checked) {
+        background: #6f6;
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:checked)::before {
+        position: absolute;
+        content: "ON";
+        color: #333;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+    }
+    label#ws-check-sample-1:has(input[type="checkbox"]:checked)::after {
+        position: absolute;
+        content: "";
+        top: 2px;
+        left: 72px;
+        bottom: auto;
+        right: auto;
+        width: 26px;
+        height: 26px;
+        background: #ccc;
+        box-shadow: 2px 2px 2px rgb( 255 255 255 / 0.5 ) inset,
+                    -2px -2px 2px rgb( 0 0 0 / 0.1 ) inset;
+        border-radius: 26px;
+        transition: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3>iOS風チェックボックス</h3>
+  <label id="ws-check-sample-1">
+    <input type="checkbox" />
+  </label>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let checkbox = document.querySelector('input[type="checkbox"]');
+        if ( checkbox ) {
+            checkbox.addEventListener('change', function() {
+                console.log(this.checked);
+            });
+        }
+    });
+  </script>
+
+</body>
+
+</html>

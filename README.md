@@ -26,6 +26,9 @@ Chart.js を使ってグラフを表示
 ## [css-samples](./css-samples/)
 CSSによるデザイン表現のサンプル
 
+## [position](./position/)
+いろいろな位置調整方法
+
 ## [check-radio](./check-radio/)
 チェックボックスやラジオボタンのサンプル
 

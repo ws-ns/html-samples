@@ -30,3 +30,41 @@ img#upload-img {
     height: auto;
     box-shadow: 0 0 2px #ccc;
 }
+
+div#drop-area {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 4 / 1;
+    border: 4px dashed #0001;
+    background: #0002;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media ( hover: hover ) {
+    div#drop-area:hover {
+        /*
+        border: 4px dashed #ccf;
+        background: #ffe;
+        */
+    }
+}
+
+div#drop-area input#file-form {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}

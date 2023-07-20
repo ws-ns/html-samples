@@ -35,6 +35,9 @@ CSSによるデザイン表現のサンプル
 ## [wait-modal](./wait-modal/)
 「待ちアニメーション」のサンプル
 
+## [upload-image](./upload-image/)
+画像をアップロードしてすぐプレビュー
+
 ## [slick](./slick/)
 slickライブラリによるカルーセル（スライダー）
 

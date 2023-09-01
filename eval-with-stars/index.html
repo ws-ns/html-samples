@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> ほわいとソフトウェア </title>
+  <link rel="stylesheet" href="./common.css" />
+  <style>
+    .eval-form {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 0;
+    }
+    .eval-form input[type="radio"] {
+        margin: 0;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0.0;
+    }
+    .eval-form label {
+        display: block;
+        margin: 0 0 0 -1px;
+        padding: 0;
+        width: 10.0vw;
+        aspect-ratio: 1 / 1;
+        transition: 0.5s;
+    }
+    .eval-form label .star {
+        width: 100%;
+        height: 100%;
+        background: #eee;
+        cursor: pointer;
+        transition: 0.5s;
+        clip-path: polygon( 50.0% 4.5%, 20.61% 94.95%, 97.55% 39.05%, 2.45% 39.05%, 79.39% 94.95% );
+    }
+    .eval-form input[type="radio"]:checked ~ label .star {
+        background: #ff0;
+    }
+    @media ( hover: hover ) {
+        .eval-form input[type="radio"] + label:hover {
+            filter: drop-shadow(0 0 4px #f00);
+        }
+        .eval-form input[type="radio"] + label:hover ~ label {
+            filter: drop-shadow(0 0 4px #f00);
+        }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="eval-form">
+    <input type="radio" name="star" id="star-5" value="5" /><label for="star-5"><div class="star"></div></label>
+    <input type="radio" name="star" id="star-4" value="4" /><label for="star-4"><div class="star"></div></label>
+    <input type="radio" name="star" id="star-3" value="3" /><label for="star-3"><div class="star"></div></label>
+    <input type="radio" name="star" id="star-2" value="2" /><label for="star-2"><div class="star"></div></label>
+    <input type="radio" name="star" id="star-1" value="1" /><label for="star-1"><div class="star"></div></label>
+  </section>
+
+</body>
+
+</html>

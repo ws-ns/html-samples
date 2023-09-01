@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-size: clamp( 16px, 1.2vw, 20px );
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ws-conic-wrap {
+    margin: 0;
+    padding: 0;
+    width: 90vmin;
+    height: 90vmin;
+    border-radius: 90vmin;
+    overflow: hidden;
+}
+
+.ws-conic-box {
+    margin: 0;
+    padding: 0;
+    width: 90vmin;
+    height: 90vmin;
+    background: repeating-conic-gradient(
+        rgb(   0 255 255 / 1.0 ) 0%,
+        rgb( 255 255   0 / 1.0 ) 5%,
+        rgb(   0 255 255 / 1.0 ) 10%
+    );
+    animation: anim-conic 10.0s linear infinite;
+}
+
+@keyframes anim-conic {
+    0% {
+        transform: rotate( 0deg );
+    }
+    100% {
+        transform: rotate( 360deg );
+    }
+}

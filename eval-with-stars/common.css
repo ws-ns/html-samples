@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.ws-read-more {
+    position: relative;
+    margin: 1.0rem;
+    padding: 1.0rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px #ccc;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 8.0rem;
+}
+
+.ws-read-more > label.ws-read-more-label {
+    position: absolute;
+    margin: 0;
+    padding: 1.0rem 2.0rem;
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX( -50% );
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight: 700;
+    background: #009;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.5s;
+}
+
+.ws-read-more > label.ws-read-more-label:hover {
+    opacity: 0.5;
+}
+
+.ws-read-more > label.ws-read-more-label > input[type="checkbox"] {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.ws-read-more:has(> label.ws-read-more-label > input[type="checkbox"])::after {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient( to bottom, transparent 0%, #fff 90% );
+    z-index: 9;
+}
+
+.ws-read-more:has(> label.ws-read-more-label > input[type="checkbox"]:checked) {
+    height: auto;
+}
+
+.ws-read-more:has(> label.ws-read-more-label > input[type="checkbox"]:checked)::after {
+    display: none;
+}
+
+.ws-read-more > label.ws-read-more-label:has(> input[type="checkbox"]:checked) {
+    display: none;
+}
+

@@ -50,19 +50,16 @@
   </style>
   <script>
     let _g_micro_cms_api_key = '- microCMS API KEY -';
+    let _g_micro_cms_endpoint = 'news';
 
     document.addEventListener('DOMContentLoaded', function() {
 
-        const data = new FormData();
-        data.set( 'endpoint', 'news' );
-
-        fetch( 'https://white-software.microcms.io/api/v1/news',
+        fetch( 'https://white-software.microcms.io/api/v1/'+_g_micro_cms_endpoint,
                {
                    method: 'GET',
                    headers: {
                        'X-MICROCMS-API-KEY': _g_micro_cms_api_key,
                    },
-                   // body: data,
                })
             .then( ( response ) => response.json() )
             .then( ( json ) => {

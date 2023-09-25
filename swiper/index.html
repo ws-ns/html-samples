@@ -16,8 +16,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <style>
     .swiper {
-        width: 600px;
-        aspect-ratio: 1125 / 750;
+      position: relative;
+      width: 600px;
+      aspect-ratio: 1125 / 750;
     }
   </style>
 </head>
@@ -73,7 +74,7 @@
   <script>
     const swiper = new Swiper('.swiper', {
         // Optional parameters
-        direction: 'vertical',
+        direction: 'horizontal', // 'vertical',
         loop: true,
 
         // If we need pagination

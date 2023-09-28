@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<!-- あ -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> 左右だけ影をつける - ほわいとソフトウェア </title>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: clamp( 16px, 1.6vw, 20px );
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    h1 {
+        margin: 2.0rem 1.0rem 0;
+        width: calc( 100% - 2.0rem );
+    }
+    .sample {
+        margin: 2px auto;
+        width: 300px;
+        height: 300px;
+        background: #ffc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #sample-1 {
+        box-shadow: 0 0 40px #000;
+    }
+    #sample-2 {
+        position: relative;
+    }
+    #sample-2::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 100%;
+        width: 60px;
+        height: 100%;
+        background: linear-gradient( to left,
+                                     rgb( 0 0 0 / 0.492 )  0%,
+                                     rgb( 0 0 0 / 0.301 ) 10%,
+                                     rgb( 0 0 0 / 0.156 ) 20%,
+                                     rgb( 0 0 0 / 0.066 ) 30%,
+                                     rgb( 0 0 0 / 0.023 ) 40%,
+                                     rgb( 0 0 0 / 0.008 ) 50%,
+                                     transparent 100% );
+    }
+    #sample-2::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 100%;
+        width: 40px;
+        height: 100%;
+        background: linear-gradient( to right,
+                                     rgb( 0 0 0 / 0.492 )  0%,
+                                     rgb( 0 0 0 / 0.301 ) 10%,
+                                     rgb( 0 0 0 / 0.156 ) 20%,
+                                     rgb( 0 0 0 / 0.066 ) 30%,
+                                     rgb( 0 0 0 / 0.023 ) 40%,
+                                     rgb( 0 0 0 / 0.008 ) 50%,
+                                     transparent 100% );
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>要素の左右だけ影をつける</h1>
+  <p>
+    cssでbox-shadowを指定すると，通常は上下左右の周囲にはみ出してしまうので，それを小手先で左右だけにする
+  </p>
+
+  <hr />
+
+  <div class="sample" id="sample-1">
+    サンプル1
+  </div>
+
+  <div class="sample" id="sample-2">
+    サンプル2
+  </div>
+
+</body>
+
+</html>

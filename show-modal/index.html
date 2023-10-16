@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>全画面モーダルを開くと背面のスクロールを停止するサンプル</title>
+    <style>
+      * {
+          box-sizing: border-box;
+      }
+      html {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: auto;
+          font-size: clamp( 16px, 1.5vw, 24px );
+          overflow-y: scroll;
+      }
+      html.fixed {
+          position: fixed;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+      }
+      body {
+          margin: 0;
+          padding: 0;
+
+      }
+      section {
+          width: 100%;
+          min-height: 800px;
+          display: grid;
+          place-items: center;
+      }
+      section:nth-child(1) {
+          background-color: #fff;
+      }
+      section:nth-child(2) {
+          background-color: #fcc;
+      }
+      section:nth-child(3) {
+          background-color: #cfc;
+      }
+      section:nth-child(4) {
+          background-color: #ccf;
+      }
+      section:nth-child(5) {
+          background-color: #cff;
+      }
+      section:nth-child(6) {
+          background-color: #fcf;
+      }
+      section:nth-child(7) {
+          background-color: #ffc;
+      }
+      section:nth-child(8) {
+          background-color: #ccc;
+      }
+      button {
+          display: block;
+          margin: 0 auto;
+          padding: 0.5rem 0;
+          width: 100%;
+          max-width: 200px;
+          color: #fff;
+          font-size: 1.0rem;
+          background: #009;
+          outline: 0;
+          border: 0;
+          border-radius: 4.0rem;
+          cursor: pointer;
+          transition: 0.5s;
+      }
+      @media ( hover: hover ) {
+          button:hover {
+              opacity: 0.5;
+          }
+      }
+      #modal {
+          position: fixed;
+          display: none;
+          place-items: center;
+          margin: 0;
+          padding: 0;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          color: #fff;
+          background: rgb( 0 0 0 / 0.5 );
+          opacity: 0.0;
+      }
+      #modal.show {
+          opacity: 1.0;
+      }
+    </style>
+    <script>
+
+      // スクロール位置記憶用
+      let _g_scrollY = window.scrollY;
+
+      // ぼやっと表示の速度(msec)
+      let _g_fadeSpeed = 1000;
+
+      // DOM読み込み後に実行
+      document.addEventListener('DOMContentLoaded', function() {
+
+          // モーダル要素をクリックして閉じる
+          let modalElem = document.getElementById('modal');
+          if ( modalElem ) {
+              modalElem.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  let $this = this;
+                  $this.classList.remove('show');
+                  setTimeout( function() {
+                      $this.style.display = 'none';
+                  }, _g_fadeSpeed );
+                  // html要素の位置を元に戻す
+                  let htmlElem = document.querySelector('html');
+                  if ( htmlElem ) {
+                      htmlElem.classList.remove('fixed');
+                      htmlElem.style.top = '0';
+                      window.scrollTo( 0, _g_scrollY );
+                  }
+              });
+          }
+      });
+
+      // モーダルを開くボタンをクリック
+      function wsShowModal() {
+          // スクロール位置を記憶
+          _g_scrollY = window.scrollY;
+          console.log(_g_scrollY);
+          // モーダル要素の表示処理
+          let modalElem = document.getElementById('modal');
+          if ( modalElem ) {
+              modalElem.style.display = 'grid';
+              modalElem.style.transition = `opacity ${_g_fadeSpeed}ms`;
+              requestAnimationFrame( function() {
+                  modalElem.classList.add('show');
+              });
+          }
+          // html要素も固定する：スクロール位置分だけずらしておく
+          let htmlElem = document.querySelector('html');
+          if ( htmlElem ) {
+              htmlElem.classList.add('fixed');
+              htmlElem.style.top = `-${_g_scrollY}px`;
+          }
+      }
+
+    </script>
+  </head>
+
+  <body>
+
+    <section>
+      <div>ほげ1</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ2</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ3</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ4</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ5</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ6</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ7</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <section>
+      <div>ほげ8</div>
+      <button onclick="wsShowModal()">モーダルを開く</button>
+    </section>
+
+    <nav id="modal">
+      モーダル
+    </nav>
+
+  </body>
+
+</html>

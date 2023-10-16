@@ -8,6 +8,10 @@ Google Fonts をCDN経由で読み込むサンプル
 ## [fade-box](./fade-box/)
 長い文章を短く表示して「もっと見る」ボタンで拡大表示．脱jQueryで実装．javascriptはclassで実装したが，まだ初心者なのでご愛嬌．
 
+## [show-modal](./show-modal)
+全画面モーダルを開いて背面要素のスクロールを止めるサンプル
+全画面モーダルを position: fixed で表示しても，背面はスクロールしてしまうので，それを止める．
+
 ## [tab-box](./tab-box/)
 タブ切り替え要素．脱jQueryで実装．
 

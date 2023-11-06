@@ -33,6 +33,12 @@ Chart.js を使ってグラフを表示
 ## [css-samples](./css-samples/)
 CSSによるデザイン表現のサンプル
 
+## [move-placeholder](./move-placeholder/)
+入力フォームのプレースホルダーが，フォーカスされると逃げだす
+
+## [cli-path](./clip-path/)
+赤い矢印をclip-pathで表現
+
 ## [position](./position/)
 いろいろな位置調整方法
 

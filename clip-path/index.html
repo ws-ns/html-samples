@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>clip-path</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+    }
+    .arrow {
+        margin: 0;
+        padding: 0;
+        width: clamp( 200px, 5.0vw, 800px );
+        aspect-ratio: 5 / 4;
+        background: #f00;
+        clip-path: polygon( 0% 30%, 50% 30%, 50% 0%, 100% 50%, 50% 100%, 50% 70%, 0% 70% );
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="arrow"></div>
+
+</body>
+
+</html>

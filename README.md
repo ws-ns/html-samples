@@ -36,7 +36,7 @@ CSSによるデザイン表現のサンプル
 ## [move-placeholder](./move-placeholder/)
 入力フォームのプレースホルダーが，フォーカスされると逃げだす
 
-## [cli-path](./clip-path/)
+## [clip-path](./clip-path/)
 赤い矢印をclip-pathで表現
 
 ## [position](./position/)

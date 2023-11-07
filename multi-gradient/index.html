@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>Multi Gradient</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: repeat( 2, 1fr );
+        grid-template-rows: repeat( 2, 1fr );
+    }
+    body > div {
+        margin: auto;
+        padding: 0;
+        inset: 0;
+        width: 80%;
+        height: 80%;
+    }
+    .box1 {
+        background:
+            linear-gradient(  45deg, #00f 0%, transparent 60% ),
+            linear-gradient( 135deg, #0f0 0%, transparent 60% ),
+            linear-gradient( 225deg, #f00 0%, transparent 60% ),
+            linear-gradient( 315deg, #000 0%, transparent 60% );
+    }
+    .box2 {
+        background:
+            radial-gradient( at    0    0, #00f 0%, transparent 60% ),
+            radial-gradient( at 100%    0, #0f0 0%, transparent 60% ),
+            radial-gradient( at 100% 100%, #f00 0%, transparent 60% ),
+            radial-gradient( at    0 100%, #000 0%, transparent 60% );
+    }
+    .box3 {
+        background:
+            radial-gradient( at  50%   0%, #006 50%, transparent 100% ),
+            radial-gradient( at   0% 100%, #f00  0%, transparent 100% ),
+            radial-gradient( at 100% 100%, #00f 50%, transparent 100% );
+    }
+    .box4 {
+        background:
+            radial-gradient( 45deg, #fff, #000 );
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4"></div>
+
+</body>
+
+</html>

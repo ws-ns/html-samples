@@ -42,6 +42,9 @@ CSSによるデザイン表現のサンプル
 ## [fullscreen-popup-scroll](./fullscreen-popup-scroll)
 全画面ポップアップとその中の要素がスクロールバーなしでスクロール
 
+## [multi-gradient](./multi-gradient)
+複数のグラデーションの重ね合わせ(CSS)
+
 ## [position](./position/)
 いろいろな位置調整方法
 

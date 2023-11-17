@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+    <meta name="description" content="" />
+    <title>Scroll Snap</title>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          width: 100vw;
+          height: 100vh;
+          overflow: hidden;
+          display: grid;
+          place-items: center;
+      }
+
+      .scroll-snap-h {
+          margin: 0;
+          padding: 20px;
+          width: 80%;
+          height: 40vh;
+          box-shadow: 0 0 8px #000;
+          display: flex;
+          align-items: stretch;
+          justify-content: flex-start;
+          gap: 20px;
+          overflow-x: scroll;
+          scroll-snap-type: x mandatory;
+          scroll-padding: 20px;
+      }
+      .scroll-snap-h .snap-item {
+          margin: 0;
+          padding: 0;
+          width: 50vw;
+          height: 100%;
+          flex: 0 0 50vw;
+          display: grid;
+          place-items: center;
+          scroll-snap-align: start;
+      }
+
+      .scroll-snap-v {
+          margin: 0;
+          padding: 20px;
+          width: 80%;
+          height: 40vh;
+          box-shadow: 0 0 8px #000;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 20px;
+          overflow-y: scroll;
+          scroll-snap-type: y mandatory;
+          scroll-padding: 20px;
+      }
+      .scroll-snap-v .snap-item {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 10vw;
+          flex: 0 0 10vw;
+          display: grid;
+          place-items: center;
+          scroll-snap-align: start;
+      }
+
+      .snap-item:nth-child(3n) {
+          background: #ffffcc;
+      }
+      .snap-item:nth-child(3n+1) {
+          background: #ffccff;
+      }
+      .snap-item:nth-child(3n+2) {
+          background: #ccffff;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="scroll-snap-h">
+      <div class="snap-item">Item 1</div>
+      <div class="snap-item">Item 2</div>
+      <div class="snap-item">Item 3</div>
+      <div class="snap-item">Item 4</div>
+      <div class="snap-item">Item 5</div>
+      <div class="snap-item">Item 6</div>
+    </div>
+    <div class="scroll-snap-v">
+      <div class="snap-item">Item 1</div>
+      <div class="snap-item">Item 2</div>
+      <div class="snap-item">Item 3</div>
+      <div class="snap-item">Item 4</div>
+      <div class="snap-item">Item 5</div>
+      <div class="snap-item">Item 6</div>
+    </div>
+
+  </body>
+
+</html>

@@ -46,6 +46,9 @@ Firefox非対応（CSSの":has"に対応していない 2023/11/7現在）
 ## [multi-gradient](./multi-gradient)
 複数のグラデーションの重ね合わせ(CSS)
 
+## [scroll-snap](./scroll-snap)
+スクロールスナップCSS
+
 ## [position](./position/)
 いろいろな位置調整方法
 

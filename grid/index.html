@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>Flexbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: clamp( 14px, 1.4vw, 20px );
+    }
+    body {
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        background: #ffffcc;
+    }
+    .grid {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 300px 1fr 300px;
+        gap: 1.0rem 1.0rem;
+        transition: 0.5s;
+    }
+    .box {
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        color: #333;
+        font-size: 1.0rem;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px #ccc;
+        border-radius: 1.0rem;
+        transition: 0.5s;
+    }
+    .box2 {
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        color: #333;
+        font-size: 1.0rem;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px #ccc;
+        border-radius: 1.0rem;
+        transition: 0.5s;
+        grid-row: 4 / 5;
+        grid-column: 2 / 4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="grid">
+    <div class="box">
+      grid sample 1<br/>
+      grid sample 1<br/>
+      grid sample 1<br/>
+      grid sample 1<br/>
+    </div>
+    <div class="box">
+      grid sample 2<br/>
+      grid sample 2<br/>
+      grid sample 2<br/>
+      grid sample 2<br/>
+    </div>
+    <div class="box">
+      grid sample 3<br/>
+      grid sample 3<br/>
+      grid sample 3<br/>
+      grid sample 3<br/>
+    </div>
+    <div class="box">
+      grid sample 4<br/>
+      grid sample 4<br/>
+      grid sample 4<br/>
+      grid sample 4<br/>
+    </div>
+    <div class="box">
+      grid sample 5<br/>
+      grid sample 5<br/>
+      grid sample 5<br/>
+      grid sample 5<br/>
+    </div>
+    <div class="box">
+      grid sample 6<br/>
+      grid sample 6<br/>
+      grid sample 6<br/>
+      grid sample 6<br/>
+    </div>
+    <div class="box">
+      grid sample 7<br/>
+      grid sample 7<br/>
+      grid sample 7<br/>
+      grid sample 7<br/>
+    </div>
+    <div class="box">
+      grid sample 8<br/>
+      grid sample 8<br/>
+      grid sample 8<br/>
+      grid sample 8<br/>
+    </div>
+    <div class="box">
+      grid sample 9<br/>
+      grid sample 9<br/>
+      grid sample 9<br/>
+      grid sample 9<br/>
+    </div>
+    <div class="box">
+      grid sample 10<br/>
+      grid sample 10<br/>
+      grid sample 10<br/>
+      grid sample 10<br/>
+    </div>
+    <div class="box2">
+      grid sample 11<br/>
+      grid sample 11<br/>
+      grid sample 11<br/>
+      grid sample 11<br/>
+    </div>
+  </div>
+
+</body>
+
+</html>

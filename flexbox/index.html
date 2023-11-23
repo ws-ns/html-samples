@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>Flexbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: clamp( 14px, 1.4vw, 20px );
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background: #ccffff;
+    }
+    .flexbox {
+        margin: 1.0rem 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: center;
+        gap: 1.0rem 1.0rem;
+        transition: 0.5s;
+    }
+    .box {
+        margin: 0;
+        padding: 1.0rem;
+        width: 300px;
+        color: #333;
+        font-size: 1.0rem;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px #ccc;
+        border-radius: 1.0rem;
+        transition: 0.5s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="flexbox">
+    <div class="box">
+      flexbox sample 1<br/>
+      flexbox sample 1<br/>
+      flexbox sample 1<br/>
+      flexbox sample 1<br/>
+    </div>
+    <div class="box">
+      flexbox sample 2<br/>
+      flexbox sample 2<br/>
+      flexbox sample 2<br/>
+      flexbox sample 2<br/>
+    </div>
+    <div class="box">
+      flexbox sample 3<br/>
+      flexbox sample 3<br/>
+      flexbox sample 3<br/>
+      flexbox sample 3<br/>
+    </div>
+    <div class="box">
+      flexbox sample 4<br/>
+      flexbox sample 4<br/>
+      flexbox sample 4<br/>
+      flexbox sample 4<br/>
+    </div>
+    <div class="box">
+      flexbox sample 5<br/>
+      flexbox sample 5<br/>
+      flexbox sample 5<br/>
+      flexbox sample 5<br/>
+    </div>
+    <div class="box">
+      flexbox sample 6<br/>
+      flexbox sample 6<br/>
+      flexbox sample 6<br/>
+      flexbox sample 6<br/>
+    </div>
+    <div class="box">
+      flexbox sample 7<br/>
+      flexbox sample 7<br/>
+      flexbox sample 7<br/>
+      flexbox sample 7<br/>
+    </div>
+    <div class="box">
+      flexbox sample 8<br/>
+      flexbox sample 8<br/>
+      flexbox sample 8<br/>
+      flexbox sample 8<br/>
+    </div>
+    <div class="box">
+      flexbox sample 9<br/>
+      flexbox sample 9<br/>
+      flexbox sample 9<br/>
+      flexbox sample 9<br/>
+    </div>
+    <div class="box">
+      flexbox sample 10<br/>
+      flexbox sample 10<br/>
+      flexbox sample 10<br/>
+      flexbox sample 10<br/>
+    </div>
+  </div>
+
+</body>
+
+</html>

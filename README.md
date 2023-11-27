@@ -30,6 +30,9 @@ Chart.js を使ってグラフを表示
 ## [calc-physics](./calc-physics/)
 等加速度運動を計算
 
+## [calc-bmi](./calc-bmi/)
+BMI計算ツール
+
 ## [css-samples](./css-samples/)
 CSSによるデザイン表現のサンプル
 

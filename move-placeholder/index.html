@@ -11,32 +11,85 @@
   <meta name="description" content="" />
   <title>form test</title>
   <style>
-    #form label {
+    html {
+        font-size: 16px;
+    }
+
+    h1, h2 {
+        margin: 0.5rem 0;
+    }
+    hr {
+        margin: 1.0rem 0;
+    }
+
+    #form1 label {
         display: block;
         margin: 0;
         padding: 0;
         width: fit-content;
+        font-size: 1.0rem;
         transition: 0.5s;
     }
-    #form input[type="text"] {
+    #form1 input[type="text"] {
         margin: 0;
-        padding: 4px 8px;
+        padding: 0.5em 1.0em;
+        width: 30.0em;
+        font-size: 1.0rem;
         outline: 0;
         border: 1px solid #ccc;
         border-radius: 4px;
     }
-    #form label:has(+input[type="text"]:placeholder-shown:not(:focus)) {
+    #form1 label:has(+input[type="text"]:placeholder-shown:not(:focus)) {
         color: #ccc;
-        transform: translate( 8px, calc( 100% + 4px ) );
+        transform: translate( 0.5em, calc( 100% + 0.5em ) );
+    }
+
+    #form2 {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #form2 label {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: fit-content;
+        font-size: 1.0rem;
+        transition: 0.5s;
+    }
+    #form2 input[type="text"] {
+        margin: 0;
+        padding: 0.5em 1.0em;
+        width: 30.0em;
+        font-size: 1.0rem;
+        outline: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    #form2 input[type="text"]:placeholder-shown:not(:focus) + label {
+        color: #ccc;
+        transform: translate( 0.5em, calc( 100% + 0.5em ) );
     }
   </style>
 </head>
 
 <body>
 
-  <div id="form">
+  <h1>プレースホルダ―がにゅにゅっと移動</h1>
+
+  <hr/>
+
+  <h2>Firefox以外でOKなコード</h2>
+  <div id="form1">
     <label>ユーザー名</label>
     <input type="text" value="" placeholder=" " />
+  </div>
+
+  <hr/>
+
+  <h2>FirefoxでもOKなコード（ちょっとひねっている）</h2>
+  <div id="form2">
+    <input type="text" value="" placeholder=" " />
+    <label>ユーザー名</label>
   </div>
 
 </body>

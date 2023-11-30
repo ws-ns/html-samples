@@ -62,7 +62,7 @@ flexboxの超基本的サンプル
 gridの超基本的サンプル
 
 ## [sp-menus](./sp-menus)
-CSSだけで実現するいろいろなスマホメニュー
+CSSだけでできるいろいろなスマホメニュー
 
 ## [position](./position/)
 いろいろな位置調整方法

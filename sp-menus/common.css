@@ -33,13 +33,15 @@ h1 {
 }
 
 .sp-area {
-    margin: 0;
-    padding: 0 1.0rem;
+    margin: 0 auto;
+    padding: 0 1.0rem 1.0rem;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 2.0rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, 300px );
 }
 
 .sp-view {
@@ -50,7 +52,7 @@ h1 {
     height: 400px;
     background: #f8f8f8;
     border: 1px solid #ccc;
-    box-shadow: 0 0 4px #ccc;
+    box-shadow: 0 0 0.5rem #0003;
     overflow: hidden;
 }
 
@@ -175,185 +177,342 @@ header .sp-menu-check {
 
 
 /**
+ * 以降，比較的新しめなCSSの「入れ子(nesting)」を使っています
+ */
+
+
+
+/**
  * 上から下に降りるメニュー
  */
-#sp1 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform-origin: center top;
-    transform: scaleY( 0.0 );
-    transition: transform var(--speed);
-}
-
-#sp1 .sp-menu-check:checked ~ .sp-menu {
-    transform: scaleY( 1.0 );
+#sp1 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center top;
+        transform: scaleY( 0.0 );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: scaleY( 1.0 );
+    }
 }
 
 
 /**
  * 右から左にスライドするメニュー
  */
-#sp2 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform: translateX( 100% );
-    transition: transform var(--speed);
+#sp2 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: translateX( 100% );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateX( 0 );
+    }
 }
-#sp2 .sp-menu-check:checked ~ .sp-menu {
-    transform: translateX( 0 );
+
+
+/**
+ * 右からひょっこり現れるメニュー
+ */
+#sp3 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: translateX( 100% );
+        /* transition: transform 2.0s cubic-bezier( 0.5, 1.8, 0.0, 0.7 ); 弱ひょっこり */
+        transition: transform 2.0s cubic-bezier( 0.5, 3.0, 0.0, 0.0 );
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateX( 0 );
+        /* transition: transform 2.0s cubic-bezier( 1.0, 0.3, 0.5, -0.8 ); 弱ひょっこり */
+        transition: transform 2.0s cubic-bezier( 1.0, 1.0, 0.5, -2.0 );
+    }
 }
 
 
 /**
  * 右から左に拡大するメニュー
  */
-#sp3 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform-origin: right center;
-    transform: scaleX( 0.0 );
-    transition: transform var(--speed);
+#sp4 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: right center;
+        transform: scaleX( 0.0 );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: scaleX( 1.0 );
+    }
 }
-#sp3 .sp-menu-check:checked ~ .sp-menu {
-    transform: scaleX( 1.0 );
+
+
+/**
+ * 左下に伸びて現れるメニュー
+ */
+#sp5 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: right top;
+        transform: scale( 0.0, 0.0 );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: scale( 1.0, 1.0 );
+    }
+}
+
+
+/**
+ * 左右に開いて現れるメニュー
+ */
+#sp6 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center center;
+        transform: scaleX( 0.0 );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: scaleX( 1.0 );
+    }
 }
 
 
 /**
  * ぼやっと現れるメニュー
  */
-#sp4 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform-origin: center;
-    opacity: 0.0;
-    transform: scale( 0.0, 0.0 );
-    transition: transform var(--speed), opacity var(--speed);
-}
-#sp4 .sp-menu-check:checked ~ .sp-menu {
-    opacity: 1.0;
-    transform: scale( 1.0, 1.0 );
+#sp7 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center;
+        opacity: 0.0;
+        transform: scale( 0.0, 0.0 );
+        transition: transform var(--speed), opacity var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        opacity: 1.0;
+        transform: scale( 1.0, 1.0 );
+    }
 }
 
 
 /**
  * くるくるっと現れるメニュー
  */
-#sp5 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    opacity: 0.0;
-    transform: scale( 0.0, 0.0 ) rotate( -720deg );
-    transition: transform var(--speed), opacity var(--speed);
-}
-#sp5 .sp-menu-check:checked ~ .sp-menu {
-    opacity: 1.0;
-    transform: scale( 1.0, 1.0 ) rotate( 0 );
+#sp8 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0.0;
+        transform: scale( 0.0, 0.0 ) rotate( -720deg );
+        transition: transform var(--speed), opacity var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        opacity: 1.0;
+        transform: scale( 1.0, 1.0 ) rotate( 0 );
+    }
 }
 
 
 /**
  * ちょっと立体的に現れるメニュー
  */
-#sp6 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform-origin: center top;
-    transform: perspective(400px) rotateX( -90deg );
-    transition: transform var(--speed);
-}
-#sp6 .sp-menu-check:checked ~ .sp-menu {
-    transform: perspective(400px) rotateX( 0deg );
+#sp9 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center top;
+        transform: perspective(400px) rotateX( -90deg );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: perspective(400px) rotateX( 0deg );
+    }
 }
 
 
 /**
  * なぜか下から現れるメニュー
  */
-#sp7 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform: translateY( 400px ); /* 通常は 100vh でよい */
-    transition: transform var(--speed);
+#sp10 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: translateY( 400px ); /* 通常は 100vh でよい */
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateY( 0 );
+    }
 }
-#sp7 .sp-menu-check:checked ~ .sp-menu {
-    transform: translateY( 0 );
+
+
+/**
+ * 下から広がりながら現れるメニュー
+ */
+#sp11 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: scaleX( 0.0 ) translateY( 400px ); /* 通常は 100vh でよい */
+        /* transition: transform var(--speed) cubic-bezier( .50, 2.00, 0.50, -2.00 );*/
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: scaleX( 1.0 ) translateY( 0 );
+    }
 }
 
 
 /**
  * なぜか左から現れるメニュー
  */
-#sp8 .sp-menu-check ~ .sp-menu {
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: auto;
-    transform: translateX( -100% );
-    transition: transform var(--speed);
-}
-#sp8 .sp-menu-check:checked ~ .sp-menu {
-    transform: translateX( 0 );
+#sp12 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform: translateX( -100% );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateX( 0 );
+    }
 }
 
 
 /**
  * 右から全画面で現れるメニュー
  */
-#sp9 .sp-menu-check ~ .sp-menu {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    transform: translateX( 100% );
-    transition: transform var(--speed);
-}
-#sp9 .sp-menu-btn-icon::before,
-#sp9 .sp-menu-btn-icon::after {
-    transition: transform var(--speed), background var(--speed);
-}
-#sp9 .sp-menu-check:checked ~ .sp-menu {
-    transform: translateX( 0 );
-}
-#sp9 .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
-#sp9 .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
-    background: #fff;
+#sp13 {
+    .sp-menu-check ~ .sp-menu {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        transform: translateX( 100% );
+        transition: transform var(--speed);
+    }
+    .sp-menu-btn-icon::before,
+    .sp-menu-btn-icon::after {
+        transition: transform var(--speed), background var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateX( 0 );
+    }
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
+        background: #fff;
+    }
 }
 
 
 /**
  * 上から全画面で現れるメニュー
  */
-#sp10 .sp-menu-check ~ .sp-menu {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 400px;
-    transform: translateY( -100% );
-    transition: transform var(--speed);
+#sp14 {
+    .sp-menu-check ~ .sp-menu {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        transform: translateY( -100% );
+        transition: transform var(--speed);
+    }
+    .sp-menu-btn-icon::before,
+    .sp-menu-btn-icon::after {
+        transition: transform var(--speed), background var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translateY( 0 );
+    }
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
+        background: #fff;
+    }
 }
-#sp10 .sp-menu-btn-icon::before,
-#sp10 .sp-menu-btn-icon::after {
-    transition: transform var(--speed), background var(--speed);
+
+
+/**
+ * 中央から全画面で現れるメニュー
+ */
+#sp15 {
+    .sp-menu-check ~ .sp-menu {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        opacity: 0.0;
+        transform: scale( 0.0, 0.0 );
+        transition: opacity var(--speed), transform var(--speed);
+    }
+    .sp-menu-btn-icon::before,
+    .sp-menu-btn-icon::after {
+        transition: transform var(--speed), background var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        opacity: 1.0;
+        transform: scale( 1.0, 1.0 );
+    }
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
+        background: #fff;
+    }
 }
-#sp10 .sp-menu-check:checked ~ .sp-menu {
-    transform: translateY( 0 );
-}
-#sp10 .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
-#sp10 .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
-    background: #fff;
+
+
+/**
+ * 右上から全画面でスライドするメニュー
+ */
+#sp16 {
+    .sp-menu-check ~ .sp-menu {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400px;
+        transform: translate( 100%, -100% );
+        transition: transform var(--speed);
+    }
+    .sp-menu-btn-icon::before,
+    .sp-menu-btn-icon::after {
+        transition: transform var(--speed), background var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: translate( 0, 0 );
+    }
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::before,
+    .sp-menu-check:checked + .sp-menu-btn > .sp-menu-btn-label > .sp-menu-btn-icon::after {
+        background: #fff;
+    }
 }

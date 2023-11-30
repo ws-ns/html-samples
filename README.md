@@ -38,7 +38,7 @@ CSSによるデザイン表現のサンプル
 
 ## [move-placeholder](./move-placeholder/)
 入力フォームのプレースホルダーが，フォーカスされると逃げだす
-Firefox非対応（CSSの":has"に対応していない 2023/11/7現在）
+これまでFirefox非対応だったが，Firefox対応版も追加（ちょっと力業）
 
 ## [clip-path](./clip-path/)
 赤い矢印をclip-pathで表現
@@ -60,6 +60,9 @@ flexboxの超基本的サンプル
 
 ## [grid](./grid)
 gridの超基本的サンプル
+
+## [sp-menus](./sp-menus)
+CSSだけで実現するいろいろなスマホメニュー
 
 ## [position](./position/)
 いろいろな位置調整方法

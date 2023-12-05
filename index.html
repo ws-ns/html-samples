@@ -19,11 +19,11 @@
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
-  <meta name="description" content="" />
+  <meta name="description" content="さまざまなHTMLやCSSのサンプル集．今のjavascriptはjQueryを要しないことが多いので，極力jQueryなしで書いている．" />
   <title>HTML &amp; CSSサンプル集 - ほわいとソフトウェア</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet" />
   <style>
     * {
         box-sizing: border-box;
@@ -46,23 +46,45 @@
     h1 {
         margin: 1.0em 0;
         padding: 0;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         font-weight: 700;
         text-align: left;
+        animation: anim-font-color 10.0s linear 0s infinite;
+    }
+    @keyframes anim-font-color {
+          0% { color: #000; }
+         86% { color: #000; }
+         88% { color: #00f; }
+         90% { color: #0ff; }
+         92% { color: #0f0; }
+         94% { color: #ff0; }
+         96% { color: #f00; }
+         98% { color: #f0f; }
+        100% { color: #000; }
     }
     h2 {
-        margin: 1.0em 0 0.5rem;
+        margin: 1.5em 0 0.5rem;
         padding: 0;
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         font-weight: 700;
         text-align: left;
     }
     h2::before {
         content: "★ ";
     }
+    h3 {
+        margin: 1.0em 0 0.5rem;
+        padding: 0 0 0 1.0rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        text-align: left;
+    }
+    h3::before {
+        content: "- ";
+    }
     p {
         margin: 0.5em 0;
-        padding: 0;
+        padding: 0 0 0 2.0rem;
         font-size: 1.0rem;
         font-weight: 400;
         text-align: left;
@@ -73,171 +95,175 @@
 
 <body>
 
-  <h1>HTML &amp; CSSサンプル集 - ほわいとソフトウェア</h1>
+  <h1>HTML &amp; CSSサンプル集</h1>
 
   <p>
     さまざまなHTMLやCSSのサンプル集．
     今のjavascriptはjQueryを要しないことが多いので，極力jQueryなしで書いている．
   </p>
 
-  <h2><a href="./google-fonts/">google-fonts</a></h2>
+
+  <h2>Javascriptなし</h2>
+
+  <h3><a href="./google-fonts/">google-fonts</a></h3>
   <p>
     Google Fonts をCDN経由で読み込むサンプル
   </p>
 
-  <h2><a href="./fade-box/">fade-box</a></h2>
-  <p>
-    長い文章を短く表示して「もっと見る」ボタンで拡大表示．脱jQueryで実装．javascriptはclassで実装したが，まだ初心者なのでご愛嬌．
-  </p>
-
-  <h2><a href="./show-modal/">show-modal</a></h2>
-  <p>
-    全画面モーダルを開いて背面要素のスクロールを止めるサンプル
-    全画面モーダルを position: fixed で表示しても，背面はスクロールしてしまうので，それを止める．
-  </p>
-
-  <h2><a href="./tab-box/">tab-box</a></h2>
-  <p>
-    タブ切り替え要素．脱jQueryで実装．
-  </p>
-
-  <h2><a href="./read-more/">read-more</a></h2>
-  <p>
-    「もっと見る」のサンプル
-  </p>
-
-  <h2><a href="./markdown/">markdown</a></h2>
-  <p>
-    javascriptのmarkdown-wasmライブラリを利用してリアルタイムにmarkdownを変換
-  </p>
-
-  <h2><a href="./google-chart/">google-chart</a></h2>
-  <p>
-    Google Chart を使ってグラフを表示
-  </p>
-
-  <h2><a href="./chartjs/">chartjs</a></h2>
-  <p>
-    Chart.js を使ってグラフを表示
-  </p>
-
-  <h2><a href="./calc-physics/">calc-physics</a></h2>
-  <p>
-    等加速度運動を計算
-  </p>
-
-  <h2><a href="./calc-bmi/">calc-bmi</a></h2>
-  <p>
-    BMI計算ツール
-  </p>
-
-  <h2><a href="./css-samples/">css-samples</a></h2>
+  <h3><a href="./css-samples/">css-samples</a></h3>
   <p>
     CSSによるデザイン表現のサンプル
   </p>
 
-  <h2><a href="./move-placeholder/">move-placeholder</a></h2>
+  <h3><a href="./move-placeholder/">move-placeholder</a></h3>
   <p>
     入力フォームのプレースホルダーが，フォーカスされると逃げだす
     これまでFirefox非対応だったが，Firefox対応版も追加（ちょっと力業）
   </p>
 
-  <h2><a href="./clip-path/">clip-path</a></h2>
+  <h3><a href="./clip-path/">clip-path</a></h3>
   <p>
     赤い矢印をclip-pathで表現
   </p>
 
-  <h2><a href="./fullscreen-popup-scroll/">fullscreen-popup-scroll</a></h2>
+  <h3><a href="./fullscreen-popup-scroll/">fullscreen-popup-scroll</a></h3>
   <p>
     全画面ポップアップとその中の要素がスクロールバーなしでスクロール
   </p>
 
-  <h2><a href="./multi-gradient/">multi-gradient</a></h2>
+  <h3><a href="./multi-gradient/">multi-gradient</a></h3>
   <p>
     複数のグラデーションの重ね合わせ(CSS)
   </p>
 
-  <h2><a href="./scroll-snap/">scroll-snap</a></h2>
+  <h3><a href="./scroll-snap/">scroll-snap</a></h3>
   <p>
     スクロールスナップCSS
   </p>
 
-  <h2><a href="./backdrop-filter/">backdrop-filter</a></h2>
+  <h3><a href="./backdrop-filter/">backdrop-filter</a></h3>
   <p>
     すりガラス効果
   </p>
 
-  <h2><a href="./flexbox/">flexbox</a></h2>
+  <h3><a href="./flexbox/">flexbox</a></h3>
   <p>
     flexboxの超基本的サンプル
   </p>
 
-  <h2><a href="./grid/">grid</a></h2>
+  <h3><a href="./grid/">grid</a></h3>
   <p>
     gridの超基本的サンプル
   </p>
 
-  <h2><a href="./sp-menus/">sp-menus</a></h2>
+  <h3><a href="./sp-menus/">sp-menus</a></h3>
   <p>
     CSSだけでできるいろいろなスマホメニュー
   </p>
 
-  <h2><a href="./position/">position</a></h2>
+  <h3><a href="./position/">position</a></h3>
   <p>
     いろいろな位置調整方法
   </p>
 
-  <h2><a href="./check-radio/">check-radio</a></h2>
+  <h3><a href="./check-radio/">check-radio</a></h3>
   <p>
     チェックボックスやラジオボタンのサンプル
   </p>
 
-  <h2><a href="./form-parts/">form-parts</a></h2>
+  <h3><a href="./form-parts/">form-parts</a></h3>
   <p>
     さまざまなフォームパーツを触って試す
   </p>
 
-  <h2><a href="./css-popup/">css-popup</a></h2>
-  <p>
-    CSSだけでポップアップ（ツールチップ，バルーン）を表示
-  </p>
-
-  <h2><a href="./auto-kana/">auto-kana</a></h2>
-  <p>
-    autokanaライブラリを利用した自動ふりがな入力
-  </p>
-
-  <h2><a href="./wait-modal/">wait-modal</a></h2>
+  <h3><a href="./wait-modal/">wait-modal</a></h3>
   <p>
     「待ちアニメーション」のサンプル
   </p>
 
-  <h2><a href="./upload-image/">upload-image</a></h2>
+
+  <h2>Javascriptあり</h2>
+
+  <h3><a href="./fade-box/">fade-box</a></h3>
+  <p>
+    長い文章を短く表示して「もっと見る」ボタンで拡大表示．脱jQueryで実装．javascriptはclassで実装したが，まだ初心者なのでご愛嬌．
+  </p>
+
+  <h3><a href="./show-modal/">show-modal</a></h3>
+  <p>
+    全画面モーダルを開いて背面要素のスクロールを止めるサンプル
+    全画面モーダルを position: fixed で表示しても，背面はスクロールしてしまうので，それを止める．
+  </p>
+
+  <h3><a href="./tab-box/">tab-box</a></h3>
+  <p>
+    タブ切り替え要素．脱jQueryで実装．
+  </p>
+
+  <h3><a href="./read-more/">read-more</a></h3>
+  <p>
+    「もっと見る」のサンプル
+  </p>
+
+  <h3><a href="./calc-physics/">calc-physics</a></h3>
+  <p>
+    等加速度運動を計算
+  </p>
+
+  <h3><a href="./calc-bmi/">calc-bmi</a></h3>
+  <p>
+    BMI計算ツール
+  </p>
+
+  <h3><a href="./upload-image/">upload-image</a></h3>
   <p>
     画像をアップロードしてすぐプレビュー
   </p>
 
-  <h2><a href="./slick/">slick</a></h2>
-  <p>
-    slickライブラリによるカルーセル（スライダー）
-  </p>
-
-  <h2><a href="./swiper/">swiper</a></h2>
-  <p>
-    swiperライブラリによるカルーセル（スライダー）
-  </p>
-
-  <h2><a href="./sensor/">sensor</a></h2>
+  <h3><a href="./sensor/">sensor</a></h3>
   <p>
     javascriptでGPSと加速度計測
   </p>
 
-  <h2><a href="./canvas-draw/">canvas-draw</a></h2>
+  <h3><a href="./canvas-draw/">canvas-draw</a></h3>
   <p>
     canvasにお絵描きして画像ファイルとしてダウンロード
   </p>
 
-  <h2><a href="./3d-zdog/">3d-zdog</a></h2>
+
+  <h2>Javascriptライブラリを利用</h2>
+
+  <h3><a href="./markdown/">markdown</a></h3>
+  <p>
+    javascriptのmarkdown-wasmライブラリを利用してリアルタイムにmarkdownを変換
+  </p>
+
+  <h3><a href="./google-chart/">google-chart</a></h3>
+  <p>
+    Google Chart を使ってグラフを表示
+  </p>
+
+  <h3><a href="./chartjs/">chartjs</a></h3>
+  <p>
+    Chart.js を使ってグラフを表示
+  </p>
+
+  <h3><a href="./auto-kana/">auto-kana</a></h3>
+  <p>
+    autokanaライブラリを利用した自動ふりがな入力
+  </p>
+
+  <h3><a href="./slick/">slick</a></h3>
+  <p>
+    slickライブラリによるカルーセル（スライダー）
+  </p>
+
+  <h3><a href="./swiper/">swiper</a></h3>
+  <p>
+    swiperライブラリによるカルーセル（スライダー）
+  </p>
+
+  <h3><a href="./3d-zdog/">3d-zdog</a></h3>
   <p>
     WebGLの練習用
   </p>

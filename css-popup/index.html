@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>CSSだけでポップアップ - ほわいとソフトウェア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 16px;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #f8f8f8;
+    }
+    h1, h2, h3, h4, h5 {
+        margin: 0.5em 0;
+        text-align: center;
+    }
+    .ws-popup {
+        position: relative;
+        margin: 1.0rem auto;
+        padding: 2.0rem 4.0rem;
+        width: max-content;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
+    .ws-popup[data-popup]::before {
+        position: absolute;
+        content: attr(data-popup);
+        margin: 0;
+        padding: 0.5em 2.0em;
+        width: max-content;
+        opacity: 0.0;
+        color: #fff;
+        background: #f00;
+        border-radius: 0.5rem;
+        white-space: nowrap;
+        z-index: 999;
+        transition: opacity 1.0s, transform 1.0s;
+    }
+    .ws-popup[data-popup].popup-u::before {
+        left: 50%;
+        bottom: 102%;
+        transform-origin: center bottom;
+        transform: translateX( -50% ) scaleY( 0.0 );
+    }
+    .ws-popup[data-popup].popup-d::before {
+        left: 50%;
+        top: 102%;
+        transform-origin: center top;
+        transform: translateX( -50% ) scaleY( 0.0 );
+    }
+    .ws-popup[data-popup].popup-r::before {
+        left: 102%;
+        top: 50%;
+        transform-origin: left center;
+        transform: translateY( -50% ) scaleX( 0.0 );
+    }
+    .ws-popup[data-popup].popup-l::before {
+        right: 102%;
+        top: 50%;
+        transform-origin: right center;
+        transform: translateY( -50% ) scaleX( 0.0 );
+    }
+    @media ( hover: hover ) {
+        .ws-popup[data-popup].popup-u:hover::before {
+            opacity: 1.0;
+            transform: translateX( -50% ) scaleY( 1.0 );
+        }
+        .ws-popup[data-popup].popup-d:hover::before {
+            opacity: 1.0;
+            transform: translateX( -50% ) scaleY( 1.0 );
+        }
+        .ws-popup[data-popup].popup-r:hover::before {
+            opacity: 1.0;
+            transform: translateY( -50% ) scaleX( 1.0 );
+        }
+        .ws-popup[data-popup].popup-l:hover::before {
+            opacity: 1.0;
+            transform: translateY( -50% ) scaleX( 1.0 );
+        }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSSだけでポップアップ</h1>
+
+  <div class="ws-popup popup-r" data-popup="ポップアップの文字">
+    右にポップアップ
+  </div>
+
+  <div class="ws-popup popup-d" data-popup="ポップアップの文字">
+    下にポップアップ
+  </div>
+
+  <div class="ws-popup popup-l" data-popup="ポップアップの文字">
+    左にポップアップ
+  </div>
+
+  <div class="ws-popup popup-u" data-popup="ポップアップの文字">
+    上にポップアップ
+  </div>
+
+</body>
+
+</html>

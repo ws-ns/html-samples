@@ -358,9 +358,47 @@ header .sp-menu-check {
 
 
 /**
- * なぜか下から現れるメニュー
+ * 立体的に上下にくるくる現れるメニュー
  */
 #sp10 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center;
+        transform: perspective(400px) rotateX( -450deg );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: perspective(400px) rotateX( 0deg );
+    }
+}
+
+
+/**
+ * 立体的に左右にくるくる現れるメニュー
+ */
+#sp11 {
+    .sp-menu-check ~ .sp-menu {
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: auto;
+        transform-origin: center;
+        transform: perspective(400px) rotateY( -450deg );
+        transition: transform var(--speed);
+    }
+    .sp-menu-check:checked ~ .sp-menu {
+        transform: perspective(400px) rotateY( 0deg );
+    }
+}
+
+
+/**
+ * なぜか下から現れるメニュー
+ */
+#sp12 {
     .sp-menu-check ~ .sp-menu {
         top: 100%;
         left: 0;
@@ -378,7 +416,7 @@ header .sp-menu-check {
 /**
  * 下から広がりながら現れるメニュー
  */
-#sp11 {
+#sp13 {
     .sp-menu-check ~ .sp-menu {
         top: 100%;
         left: 0;
@@ -397,7 +435,7 @@ header .sp-menu-check {
 /**
  * なぜか左から現れるメニュー
  */
-#sp12 {
+#sp14 {
     .sp-menu-check ~ .sp-menu {
         top: 100%;
         left: 0;
@@ -415,7 +453,7 @@ header .sp-menu-check {
 /**
  * 右から全画面で現れるメニュー
  */
-#sp13 {
+#sp15 {
     .sp-menu-check ~ .sp-menu {
         top: 0;
         left: 0;
@@ -441,7 +479,7 @@ header .sp-menu-check {
 /**
  * 上から全画面で現れるメニュー
  */
-#sp14 {
+#sp16 {
     .sp-menu-check ~ .sp-menu {
         top: 0;
         left: 0;
@@ -467,7 +505,7 @@ header .sp-menu-check {
 /**
  * 中央から全画面で現れるメニュー
  */
-#sp15 {
+#sp17 {
     .sp-menu-check ~ .sp-menu {
         top: 0;
         left: 0;
@@ -495,7 +533,7 @@ header .sp-menu-check {
 /**
  * 右上から全画面でスライドするメニュー
  */
-#sp16 {
+#sp18 {
     .sp-menu-check ~ .sp-menu {
         top: 0;
         left: 0;

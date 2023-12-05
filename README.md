@@ -73,6 +73,9 @@ CSSだけでできるいろいろなスマホメニュー
 ## [form-parts](./form-parts/)
 さまざまなフォームパーツを触って試す
 
+## [auto-kana](./auto-kana/)
+autokanaライブラリを利用した自動ふりがな入力
+
 ## [wait-modal](./wait-modal/)
 「待ちアニメーション」のサンプル
 

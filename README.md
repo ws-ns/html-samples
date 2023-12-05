@@ -70,6 +70,9 @@ CSSだけでできるいろいろなスマホメニュー
 ## [check-radio](./check-radio/)
 チェックボックスやラジオボタンのサンプル
 
+## [form-parts](./form-parts/)
+さまざまなフォームパーツを触って試す
+
 ## [wait-modal](./wait-modal/)
 「待ちアニメーション」のサンプル
 

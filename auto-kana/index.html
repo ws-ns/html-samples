@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>ふりがな自動入力 - ホワイトソフトウェア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 16px;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #f8f8f8;
+    }
+    h1, h2, h3, h4, h5 {
+        margin: 0.5em 0;
+    }
+    input[type="text"] {
+        margin: 0;
+        padding: 0.5em 1.0em;
+        width: 100%;
+        font-size: 1.0rem;
+        font-family: inherit;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+  </style>
+  <script defer src="./autokana.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // ふりがな
+        AutoKana.bind('#kanji', '#kana');
+        // フリガナ
+        // AutoKana.bind('#kanji', '#kana', { katakana: true });
+    });
+  </script>
+</head>
+
+<body>
+
+  <h1>ふりがな自動入力</h1>
+
+  <div>漢字入力</div>
+  <div><input type="text" id="kanji" /></div>
+
+  <hr/>
+
+  <div>ふりがな</div>
+  <div><input type="text" id="kana" /></div>
+
+</body>
+
+</html>

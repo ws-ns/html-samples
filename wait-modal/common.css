@@ -12,64 +12,123 @@ html {
     margin: 0;
     padding: 0;
     width: 100%;
+    font-size: 16px;
 }
 
 body {
     margin: 0;
     padding: 0;
     width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f8f8f8;
 }
 
-#ws-wait-modal {
-    /* display: none; */
-    position: fixed;
+.ws-wait-grid {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    background: rgb( 0 0 0 / 0.2 );
+    width: 100%;
+    background: rgb( 0 0 0 / 1.0 );
+    display: grid;
+    grid-template-columns: repeat( auto-fit, 300px );
     z-index: 9999;
 }
 
-.ws-wait-anim {
-    position: absolute;
+.ws-wait-item {
+    position: relative;
     margin: 0;
     padding: 0;
-    width: 160px;
-    height: 160px;
-    top: calc( 50% - 80px );
-    left: calc( 50% - 80px );
+    width: 100%;
+    aspect-ratio: 1 / 1;
     background: transparent;
-    animation: anim-wait 2s linear infinite;
 }
 
-.ws-wait-anim::before {
+
+#anim1 {
+    animation: anim-rotate 2s linear infinite;
+}
+
+#anim1::before {
     position: absolute;
     content: "";
     margin: 0;
     padding: 0;
     width: 20px;
     height: 20px;
-    top: 70px;
-    left: 70px;
+    top: calc( 50% - 10px );
+    left: calc( 50% - 10px );
     background: transparent;
     border-radius: 20px;
     box-shadow:
-        -40px -40px 4px rgb( 0 0 0 / 0.2 ),
-          0px -56px 4px rgb( 0 0 0 / 0.4 ),
-         40px -40px 4px rgb( 0 0 0 / 0.6 ),
-         56px   0px 4px rgb( 0 0 0 / 0.8 ),
-         40px  40px 4px rgb( 0 0 0 / 1.0 ),
-          0px  56px 4px rgb( 0 0 0 / 0.8 ),
-        -40px  40px 4px rgb( 0 0 0 / 0.6 ),
-        -56px   0px 4px rgb( 0 0 0 / 0.4 )
+        -40px -40px 4px rgb( 255 255 255 / 0.2 ),
+          0px -56px 4px rgb( 255 255 255 / 0.4 ),
+         40px -40px 4px rgb( 255 255 255 / 0.6 ),
+         56px   0px 4px rgb( 255 255 255 / 0.8 ),
+         40px  40px 4px rgb( 255 255 255 / 1.0 ),
+          0px  56px 4px rgb( 255 255 255 / 0.8 ),
+        -40px  40px 4px rgb( 255 255 255 / 0.6 ),
+        -56px   0px 4px rgb( 255 255 255 / 0.4 )
     ;
 }
 
-@keyframes anim-wait {
+@keyframes anim-rotate {
     0%   { transform: rotate(   0deg ); }
     100% { transform: rotate( 360deg ); }
+}
+
+
+#anim2 {
+    animation: anim-rotate 2s linear infinite;
+}
+
+#anim2::before {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    width: calc( 60% + 8px );
+    height: calc( 60% + 8px );
+    top: calc( 50% - 30% - 4px );
+    left: calc( 50% - 30% - 4px );
+    background: linear-gradient( to right, #000, #f00 );
+    border-radius: 100%;
+}
+
+#anim2::after {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    background: #000;
+    border-radius: 100%;
+}
+
+
+#anim3 {
+    animation: anim3 4s linear infinite;
+}
+
+#anim3::before {
+    position: absolute;
+    content: "Now Loading";
+    margin: 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
+
+@keyframes anim3 {
+      0% { transform: perspective(200px) rotateY(   0deg ); }
+    100% { transform: perspective(200px) rotateY( 360deg ); }
 }

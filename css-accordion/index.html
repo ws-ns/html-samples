@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>CSSだけでアコーディオン - ほわいとソフトウェア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 16px;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #f8f8f8;
+    }
+    h1 {
+        margin: 0.5em 0;
+        font-size: 2.0rem;
+        font-weight: 700;
+    }
+    h2 {
+        margin: 1.5em 0 0.5em;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    img {
+        display: block;
+        margin: 1.0rem 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+    }
+    #accordion1 {
+        margin: 1.0rem 0;
+        padding: 0;
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px #ccc;
+    }
+    #accordion1 .summary {
+        margin: 0;
+        padding: 1.0rem;
+        cursor: pointer;
+    }
+    #accordion1 .summary:focus {
+        outline: 2px solid #999;
+    }
+    #accordion1 .contents {
+        margin: 0;
+        padding: 1.0rem 1.0rem;
+        border-top: 1px solid #ccc;
+        line-height: 1.8;
+    }
+
+    #accordion2 {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 4px #ccc;
+    }
+    #accordion2 input[type="checkbox"] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0.0;
+    }
+    #accordion2 .summary {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 1.0rem;
+        background: #fff;
+        cursor: pointer;
+    }
+    #accordion2 input[type="checkbox"]:focus + .summary {
+        outline: 2px solid #999;
+    }
+    #accordion2 .summary::after {
+        position: absolute;
+        content: "";
+        top: calc( 50% - 0.3em );
+        right: 1.0em;
+        width: 0.8em;
+        height: 0.6em;
+        background: #000;
+        clip-path: polygon( 0% 0%, 100% 0%, 50% 100% );
+        transition: transform 1.0s;
+    }
+    #accordion2 .contents {
+        margin: 0;
+        padding: 0.0rem 1.0rem;
+        border-top: 1px solid #ccc;
+        line-height: 0.0;
+        opacity: 0.0;
+        transition: opacity 1.0s, line-height 1.0s, padding 1.0s;
+        overflow: hidden;
+    }
+    #accordion2 input[type="checkbox"]:checked ~ .contents {
+        padding: 1.0rem 1.0rem;
+        line-height: 1.8;
+        opacity: 1.0;
+    }
+    #accordion2 input[type="checkbox"]:checked ~ .summary::after {
+        transform: rotate( -180deg );
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>CSSだけでアコーディオン</h1>
+
+  <h2>detailsとsummaryタグを利用したアコーディオン</h2>
+
+  <details id="accordion1">
+    <summary class="summary">ここをクリックして開閉</summary>
+    <div class="contents">
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      <img src="./sample.jpg" />
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+    </div>
+  </details>
+
+
+  <h2>inputを利用したアコーディオン（アニメつき）</h2>
+
+  <div id="accordion2">
+    <input type="checkbox" id="accordion2-check" />
+    <label class="summary" for="accordion2-check">ここをクリックして開閉</label>
+    <div class="contents">
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      CSSだけだと画像を入れてアニメーションはできません<br/>
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+      これはサンプルテキストです<br/>
+    </div>
+  </div>
+
+</body>
+
+</html>

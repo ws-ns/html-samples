@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <title>CSSだけでメガメニュー - ほわいとソフトウェア</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Sriracha&display=swap" rel="stylesheet" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 16px;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #f8f8f8;
+    }
+    header {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 120px;
+    }
+    h1 {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 70px;
+        color: #fff;
+        font-size: 2.0rem;
+        font-weight: 700;
+        background: #009c;
+        display: grid;
+        place-items: center;
+    }
+    h2 {
+        margin: 1.5em 0 0.5em;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    .gnavi {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 50px;
+        background: #003c;
+        display: grid;
+        place-items: center;
+    }
+    .gnavi .gnavi-wrap {
+        position: relative;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+        max-width: 1200px;
+        height: 100%;
+        list-style: none;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        gap: 0;
+    }
+    .gnavi .gnavi-wrap li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .gnavi .gnavi-wrap li.sub {
+        position: relative;
+    }
+    .gnavi .gnavi-wrap li + li {
+        border-left: 1px solid #fff3;
+    }
+    .gnavi .gnavi-wrap li > .item {
+        position: relative;
+        margin: 0;
+        padding: 0 1.0em;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-size: 1.0rem;
+        text-decoration: none;
+        display: grid;
+        place-items: center;
+    }
+    .gnavi .gnavi-wrap li.mega > .item + .mega-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 2.0rem;
+        width: 100%;
+        color: #fff;
+        font-size: 1.0rem;
+        background: #000c;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1.0rem 1.0rem;
+        opacity: 0.0;
+        transform-origin: center top;
+        transform: scaleY( 0.0 );
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    .gnavi .gnavi-wrap li.mega > .item + .mega-menu a {
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+    }
+    .gnavi .gnavi-wrap li.mega:hover > .item + .mega-menu {
+        opacity: 1.0;
+        transform: scaleY( 1.0 );
+    }
+    .gnavi .gnavi-wrap li.sub > .item + .sub-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 1.0rem;
+        width: max-content;
+        color: #fff;
+        font-size: 1.0rem;
+        background: #000c;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 0.0;
+        transform-origin: center top;
+        transform: scaleY( 0.0 );
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    .gnavi .gnavi-wrap li.sub > .item + .sub-menu a {
+        margin: 0;
+        padding: 0.5em 0;
+        color: #fff;
+        text-decoration: none;
+    }
+    .gnavi .gnavi-wrap li.sub > .item + .sub-menu a + a {
+        border-top: 1px solid #fff3;
+    }
+    .gnavi .gnavi-wrap li.sub:hover > .item + .sub-menu {
+        opacity: 1.0;
+        transform: scaleY( 1.0 );
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>CSSだけでメガメニュー</h1>
+    <nav class="gnavi">
+      <ul class="gnavi-wrap">
+        <li><a href="#" class="item">普通</a></li>
+        <li class="mega">
+          <span class="item">メガ1</span>
+          <nav class="mega-menu">
+            <a href="#" class="item">めがめにゅー1-1</a>
+            <a href="#" class="item">めがめにゅー1-2</a>
+            <a href="#" class="item">めがめにゅー1-3</a>
+            <a href="#" class="item">めがめにゅー1-4</a>
+            <a href="#" class="item">めがめにゅー1-5</a>
+          </nav>
+        </li>
+        <li><a href="#" class="item">普通</a></li>
+        <li class="sub">
+          <span class="item">子あり1</span>
+          <nav class="sub-menu">
+            <a href="#" class="item">子メニュー1-1</a>
+            <a href="#" class="item">子メニュー1-2</a>
+            <a href="#" class="item">子メニュー1-3</a>
+            <a href="#" class="item">子メニュー1-4</a>
+            <a href="#" class="item">子メニュー1-5</a>
+          </nav>
+        </li>
+        <li><a href="#" class="item">普通</a></li>
+        <li class="mega">
+          <a href="#" class="item">メガ2</a>
+          <nav class="mega-menu">
+            <a href="#" class="item">めがめにゅー2-1</a>
+            <a href="#" class="item">めがめにゅー2-2</a>
+            <a href="#" class="item">めがめにゅー2-3</a>
+            <a href="#" class="item">めがめにゅー2-4</a>
+            <a href="#" class="item">めがめにゅー2-5</a>
+          </nav>
+        </li>
+        <li><a href="#" class="item">普通</a></li>
+        <li class="sub">
+          <a href="#" class="item">子あり2</a>
+          <nav class="sub-menu">
+            <a href="#" class="item">子メニュー2-1</a>
+            <a href="#" class="item">子メニュー2-2</a>
+            <a href="#" class="item">子メニュー2-3</a>
+            <a href="#" class="item">子メニュー2-4</a>
+            <a href="#" class="item">子メニュー2-5</a>
+          </nav>
+        </li>
+        <li><a href="#" class="item">普通</a></li>
+      </ul>
+    </nav>
+  </header>
+
+</body>
+
+</html>

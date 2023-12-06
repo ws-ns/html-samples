@@ -76,20 +76,21 @@
         align-items: stretch;
         justify-content: center;
         gap: 0;
+        z-index: 99;
     }
-    .gnavi .gnavi-wrap li {
+    .gnavi .gnavi-wrap > li {
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
     }
-    .gnavi .gnavi-wrap li.sub {
+    .gnavi .gnavi-wrap > li.sub {
         position: relative;
     }
-    .gnavi .gnavi-wrap li + li {
+    .gnavi .gnavi-wrap > li + li {
         border-left: 1px solid #fff3;
     }
-    .gnavi .gnavi-wrap li > .item {
+    .gnavi .gnavi-wrap > li > .item {
         position: relative;
         margin: 0;
         padding: 0 1.0em;
@@ -101,7 +102,7 @@
         display: grid;
         place-items: center;
     }
-    .gnavi .gnavi-wrap li.mega > .item + .mega-menu {
+    .gnavi .gnavi-wrap > li.mega > .item + .mega-menu {
         position: absolute;
         top: 100%;
         left: 0;
@@ -111,24 +112,42 @@
         color: #fff;
         font-size: 1.0rem;
         background: #000c;
+        list-style: none;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         gap: 1.0rem 1.0rem;
+        border-left: 1px solid #fff9;
+        border-bottom: 1px solid #fff9;
+        border-right: 1px solid #fff9;
         opacity: 0.0;
         transform-origin: center top;
         transform: scaleY( 0.0 );
         transition: opacity 0.5s, transform 0.5s;
     }
-    .gnavi .gnavi-wrap li.mega > .item + .mega-menu a {
+    .gnavi .gnavi-wrap > li.mega > .item + .mega-menu > li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .gnavi .gnavi-wrap > li.mega > .item + .mega-menu > li a {
+        display: block;
+        margin: 0;
+        padding: 0.5em 1.0em;
+        width: 100%;
         color: #fff;
+        font-size: 1.0rem;
         text-align: center;
         text-decoration: none;
+        transition: 0.5s;
     }
-    .gnavi .gnavi-wrap li.mega:hover > .item + .mega-menu {
+    .gnavi .gnavi-wrap > li.mega:hover > .item + .mega-menu {
         opacity: 1.0;
         transform: scaleY( 1.0 );
     }
-    .gnavi .gnavi-wrap li.sub > .item + .sub-menu {
+    .gnavi .gnavi-wrap > li.sub {
+        position: relative;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu {
         position: absolute;
         top: 100%;
         left: 0;
@@ -138,6 +157,10 @@
         color: #fff;
         font-size: 1.0rem;
         background: #000c;
+        list-style: none;
+        border-left: 1px solid #fff9;
+        border-bottom: 1px solid #fff9;
+        border-right: 1px solid #fff9;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -146,18 +169,105 @@
         transform: scaleY( 0.0 );
         transition: opacity 0.5s, transform 0.5s;
     }
-    .gnavi .gnavi-wrap li.sub > .item + .sub-menu a {
-        margin: 0;
-        padding: 0.5em 0;
-        color: #fff;
-        text-decoration: none;
+    .gnavi .gnavi-wrap > li.sub.right > .item + .sub-menu {
+        left: auto;
+        right: 0;
     }
-    .gnavi .gnavi-wrap li.sub > .item + .sub-menu a + a {
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li a {
+        display: block;
+        margin: 0;
+        padding: 0.5em 1.0em;
+        color: #fff;
+        font-size: 1.0rem;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li + li {
         border-top: 1px solid #fff3;
     }
-    .gnavi .gnavi-wrap li.sub:hover > .item + .sub-menu {
+    .gnavi .gnavi-wrap > li.sub:hover > .item + .sub-menu {
         opacity: 1.0;
         transform: scaleY( 1.0 );
+    }
+
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub {
+        position: relative;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub > .item + .subsub-menu {
+        position: absolute;
+        top: 0;
+        left: calc( 100% + 1.0em );
+        margin: 0;
+        padding: 1.0rem;
+        width: max-content;
+        color: #fff;
+        font-size: 1.0rem;
+        background: #000c;
+        list-style: none;
+        border-left: 1px solid #fff9;
+        border-bottom: 1px solid #fff9;
+        border-right: 1px solid #fff9;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 0.0;
+        transform-origin: left center;
+        transform: scaleX( 0.0 );
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub.left > .item + .subsub-menu {
+        left: auto;
+        right: calc( 100% + 1.0em );
+        transform-origin: right center;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub > .item + .subsub-menu > li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub > .item + .subsub-menu > li a {
+        display: block;
+        margin: 0;
+        padding: 0.5em 1.0em;
+        color: #fff;
+        font-size: 1.0rem;
+        text-decoration: none;
+        transition: 0.5s;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub > .item + .subsub-menu > li + li {
+        border-top: 1px solid #fff3;
+    }
+    .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li.subsub:hover > .item + .subsub-menu {
+        opacity: 1.0;
+        transform: scaleY( 1.0 );
+    }
+
+    @media ( hover: hover ) {
+        .gnavi .gnavi-wrap a:hover {
+            background: #00f;
+        }
+        .gnavi .gnavi-wrap > li.sub > .item + .sub-menu > li a:hover {
+            background: #00f;
+        }
+    }
+
+    main {
+        margin: 0;
+        padding: 0
+        width: 100%;
+    }
+    main img {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+        opacity: 0.2;
     }
   </style>
 </head>
@@ -170,52 +280,76 @@
       <ul class="gnavi-wrap">
         <li><a href="#" class="item">普通</a></li>
         <li class="mega">
-          <span class="item">メガ1</span>
-          <nav class="mega-menu">
-            <a href="#" class="item">めがめにゅー1-1</a>
-            <a href="#" class="item">めがめにゅー1-2</a>
-            <a href="#" class="item">めがめにゅー1-3</a>
-            <a href="#" class="item">めがめにゅー1-4</a>
-            <a href="#" class="item">めがめにゅー1-5</a>
-          </nav>
+          <span class="item">メガ1 &nbsp; &gt;</span>
+          <ul class="mega-menu">
+            <li><a href="#" class="item">めがめにゅー1-1</a></li>
+            <li><a href="#" class="item">めがめにゅー1-2</a></li>
+            <li><a href="#" class="item">めがめにゅー1-3</a></li>
+            <li><a href="#" class="item">めがめにゅー1-4</a></li>
+            <li><a href="#" class="item">めがめにゅー1-5</a></li>
+          </ul>
         </li>
         <li><a href="#" class="item">普通</a></li>
         <li class="sub">
-          <span class="item">子あり1</span>
-          <nav class="sub-menu">
-            <a href="#" class="item">子メニュー1-1</a>
-            <a href="#" class="item">子メニュー1-2</a>
-            <a href="#" class="item">子メニュー1-3</a>
-            <a href="#" class="item">子メニュー1-4</a>
-            <a href="#" class="item">子メニュー1-5</a>
-          </nav>
+          <span class="item">子あり1 &nbsp; &gt;</span>
+          <ul class="sub-menu">
+            <li><a href="#" class="item">子メニュー1-1</a></li>
+            <li><a href="#" class="item">子メニュー1-2</a></li>
+            <li class="subsub">
+              <a href="#" class="item">子メニュー1-3 &nbsp; &gt;</a>
+              <ul class="subsub-menu">
+                <li><a href="#" class="item">孫メニュー1-3-1</a></li>
+                <li><a href="#" class="item">孫メニュー1-3-2</a></li>
+                <li><a href="#" class="item">孫メニュー1-3-3</a></li>
+                <li><a href="#" class="item">孫メニュー1-3-4</a></li>
+                <li><a href="#" class="item">孫メニュー1-3-5</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="item">子メニュー1-4</a></li>
+            <li><a href="#" class="item">子メニュー1-5</a></li>
+          </ul>
         </li>
         <li><a href="#" class="item">普通</a></li>
         <li class="mega">
-          <a href="#" class="item">メガ2</a>
-          <nav class="mega-menu">
-            <a href="#" class="item">めがめにゅー2-1</a>
-            <a href="#" class="item">めがめにゅー2-2</a>
-            <a href="#" class="item">めがめにゅー2-3</a>
-            <a href="#" class="item">めがめにゅー2-4</a>
-            <a href="#" class="item">めがめにゅー2-5</a>
-          </nav>
+          <a href="#" class="item">メガ2 &nbsp; &gt;</a>
+          <ul class="mega-menu">
+            <li><a href="#" class="item">めがめにゅー2-1</a></li>
+            <li><a href="#" class="item">めがめにゅー2-2</a></li>
+            <li><a href="#" class="item">めがめにゅー2-3</a></li>
+            <li><a href="#" class="item">めがめにゅー2-4</a></li>
+            <li><a href="#" class="item">めがめにゅー2-5</a></li>
+          </ul>
         </li>
         <li><a href="#" class="item">普通</a></li>
-        <li class="sub">
-          <a href="#" class="item">子あり2</a>
-          <nav class="sub-menu">
-            <a href="#" class="item">子メニュー2-1</a>
-            <a href="#" class="item">子メニュー2-2</a>
-            <a href="#" class="item">子メニュー2-3</a>
-            <a href="#" class="item">子メニュー2-4</a>
-            <a href="#" class="item">子メニュー2-5</a>
-          </nav>
+        <li class="sub right">
+          <a href="#" class="item">子あり2 &nbsp; &gt;</a>
+          <ul class="sub-menu">
+            <li><a href="#" class="item">子メニュー2-1</a></li>
+            <li><a href="#" class="item">子メニュー2-2</a></li>
+            <li class="subsub left">
+              <a href="#" class="item">子メニュー2-3 &nbsp; &gt;</a>
+              <ul class="subsub-menu">
+                <li><a href="#" class="item">孫メニュー2-3-1</a></li>
+                <li><a href="#" class="item">孫メニュー2-3-2</a></li>
+                <li><a href="#" class="item">孫メニュー2-3-3</a></li>
+                <li><a href="#" class="item">孫メニュー2-3-4</a></li>
+                <li><a href="#" class="item">孫メニュー2-3-5</a></li>
+              </ul>
+            </li>
+            <li><a href="#" class="item">子メニュー2-4</a></li>
+            <li><a href="#" class="item">子メニュー2-5</a></li>
+          </ul>
         </li>
         <li><a href="#" class="item">普通</a></li>
       </ul>
     </nav>
   </header>
+
+  <main>
+    <picture>
+      <img src="./sample.jpg" />
+    </picture>
+  </main>
 
 </body>
 

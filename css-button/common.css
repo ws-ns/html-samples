@@ -1,0 +1,403 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f8f8f8;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 2.0rem;
+    font-weight: 700;
+}
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+.sample-area {
+    margin: 0 auto;
+    padding: 0 1.0rem 1.0rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1.0rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, 300px );
+}
+.sample-box {
+    position: relative;
+    margin: 0;
+    padding: 10px;
+    width: 300px;
+    height: 160px;
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 0.5rem #0003;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.0rem;
+}
+
+
+/**
+ * iOS風ボタン
+ */
+#btn1 {
+    input[type="checkbox"]  {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+    }
+    input[type="checkbox"] + label {
+        position: relative;
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        height: 30px;
+        border-radius: 30px;
+        box-shadow: 0 0 2px #ccc,
+                    2px 2px 2px rgb( 0 0 0 / 0.1 ) inset,
+                    -2px -2px 2px rgb( 255 255 255 / 0.5 ) inset;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    input[type="checkbox"]:not(:checked) + label {
+        background: #eee;
+    }
+    input[type="checkbox"]:not(:checked) + label::before {
+        position: absolute;
+        content: "OFF";
+        color: #999;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+    }
+    input[type="checkbox"]:not(:checked) + label::after {
+        position: absolute;
+        content: "";
+        top: 2px;
+        left: 2px;
+        bottom: auto;
+        right: auto;
+        width: 26px;
+        height: 26px;
+        background: #ccc;
+        box-shadow: 2px 2px 2px rgb( 255 255 255 / 0.5 ) inset,
+                    -2px -2px 2px rgb( 0 0 0 / 0.1 ) inset;
+        border-radius: 26px;
+        transition: 0.5s;
+    }
+    input[type="checkbox"]:checked + label {
+        background: #6f6;
+    }
+    input[type="checkbox"]:checked + label::before {
+        position: absolute;
+        content: "ON";
+        color: #333;
+        font-size: 16px;
+        top: 50%;
+        left: 50%;
+        transform: translate( -50%, -50% );
+    }
+    input[type="checkbox"]:checked + label::after {
+        position: absolute;
+        content: "";
+        top: 2px;
+        left: 72px;
+        bottom: auto;
+        right: auto;
+        width: 26px;
+        height: 26px;
+        background: #ccc;
+        box-shadow: 2px 2px 2px rgb( 255 255 255 / 0.5 ) inset,
+                    -2px -2px 2px rgb( 0 0 0 / 0.1 ) inset;
+        border-radius: 26px;
+        transition: 0.5s;
+    }
+}
+
+
+/**
+ * 普通のボタン
+ */
+#btn2 {
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * 矢印つきボタン1
+ */
+#btn3 {
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    button::after {
+        position: absolute;
+        content: "";
+        top: calc( 50% - 0.35em - 1.5px );
+        right: 1.5em;
+        width: 0.7em;
+        height: 0.7em;
+        border-right: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        border-radius: 1px;
+        transform: rotate( -45deg );
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * 矢印つきボタン2
+ */
+#btn4 {
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    button::after {
+        position: absolute;
+        content: "";
+        top: calc( 50% - 0.5em );
+        right: 1.5em;
+        width: 0.7em;
+        height: 1.0em;
+        background: #fff;
+        clip-path: polygon( 0% 0%, 100% 50%, 0% 100% );
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * 影のあるボタン
+ */
+#btn5 {
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * へこむボタン
+ */
+#btn6 {
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        cursor: pointer;
+        transition: opacity 0.5s, box-shadow 0.5s, transform 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.7;
+            box-shadow: 0.2rem 0.2rem 0.2rem #ccc;
+            transform: translate( 0.3rem, 0.3rem );
+        }
+    }
+}
+
+
+/**
+ * 光沢のあるボタン
+ */
+#btn7 {
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow:
+            0.5rem 0.5rem 0.2rem #ccc,
+            0.2rem 0.2rem 0.4rem #fff6 inset,
+            -0.2rem -0.2rem 0.4rem #0039 inset;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * シュッとするボタン
+ */
+#btn8 {
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        aspect-ratio: 250 / 60;
+        outline: 0;
+        border: 0;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #fff;
+        border: 2px solid #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        overflow: hidden;
+        cursor: pointer;
+        transition: opacity 0.5s, box-shadow 0.5s, transform 0.5s;
+    }
+    button::after {
+        position: absolute;
+        content: attr(data-str);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        font-size: 1.2rem;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+    }
+    button::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: -10%;
+        width: 120%;
+        height: 100%;
+        background: #ff0;
+        transform-origin: right top;
+        transform: skewX( -30deg ) scaleX( 0.0 );
+        transition: transform 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover::before {
+            transform-origin: left top;
+            transform: skewX( -30deg ) scaleX( 1.0 );
+        }
+    }
+}

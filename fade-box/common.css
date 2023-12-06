@@ -19,6 +19,14 @@
     z-index: 0;
 }
 
+.ws-fade-box img {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
 .ws-fade-box.ws-fade {
     height: 160px;
     overflow: hidden;
@@ -39,25 +47,28 @@
     z-index: 1;
 }
 
-.ws-fade-box div.ws-more-button {
-    position: absolute;
-    display: none;
-    margin: 0;
+div.ws-more-button {
+    margin: 0 auto;
     padding: 10px 20px;
-    content: "";
-    top: auto;
-    bottom: 10px;
-    left: 50%;
-    right: auto;
-    transform: translateX( -50% );
-    width: auto;
+    width: max-content;
     height: auto;
     color: #ffffff;
     background-color: #0000ff;
     border-radius: 4px;
     transition: 0.5s;
-    opacity: 0.0;
     cursor: pointer;
+}
+
+.ws-fade-box div.ws-more-button {
+    position: absolute;
+    display: none;
+    content: "";
+    top: auto;
+    bottom: 10px;
+    left: 50%;
+    right: auto;
+    opacity: 0.0;
+    transform: translateX( -50% );
     z-index: 2;
 }
 

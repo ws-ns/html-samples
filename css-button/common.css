@@ -456,6 +456,12 @@ input, button, select, textarea {
  * ルパン三世なボタン
  */
 #btn10 {
+    .btn-wrap {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        animation: anim-btn10-1 0.5s ease 0s forwards;
+    }
     button {
         position: relative;
         display: block;
@@ -473,7 +479,6 @@ input, button, select, textarea {
         overflow: hidden;
         cursor: pointer;
         transition: opacity 0.5s;
-        animation: anim-btn10-1 0.5s ease 0s forwards;
     }
     @media ( hover: hover ) {
         button:hover {
@@ -517,4 +522,105 @@ input, button, select, textarea {
     100% {
         opacity: 0.5;
     }
+}
+
+
+/**
+ * きらりんボタン
+ */
+#btn11 {
+    .btn-wrap {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        transition: transform 0.5s, opacity 0.5s;
+    }
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    button::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 40%;
+        width: 20%;
+        height: 100%;
+        background: linear-gradient( to right, #fff0 0%, #fffc 45%, #fffc 55%, #fff0 100% );
+        transform: translateX( -200px ) skewX( -20deg );
+    }
+    button:not(:hover)::before {
+        animation: anim-btn11 5.0s linear 0s infinite;
+    }
+    @media ( hover: hover ) {
+        .btn-wrap:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+@keyframes anim-btn11 {
+    0%   { transform: translateX( -200px ) skewX( -20deg ); }
+    90%  { transform: translateX( -200px ) skewX( -20deg ); }
+    100% { transform: translateX(  200px ) skewX( -20deg ); }
+}
+
+
+/**
+ * ぼよよんボタン
+ */
+#btn12 {
+    .btn-wrap {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        transition: transform 0.5s, opacity 0.5s;
+    }
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    button:not(:hover) {
+        animation: anim-btn12 5.0s ease 0s infinite;
+    }
+    @media ( hover: hover ) {
+        .btn-wrap:hover {
+            transform: scale( 1.2, 1.2 );
+            opacity: 0.5;
+        }
+    }
+}
+
+@keyframes anim-btn12 {
+    0%   { transform: scale( 1.0, 1.0 ); }
+    92%  { transform: scale( 1.0, 1.0 ); }
+    94%  { transform: scale( 1.2, 1.2 ); }
+    98%  { transform: scale( 0.8, 0.8 ); }
+    100% { transform: scale( 1.0, 1.0 ); }
 }

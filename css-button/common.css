@@ -257,9 +257,58 @@ input, button, select, textarea {
 
 
 /**
- * 影のあるボタン
+ * 矢印が動くボタン
  */
 #btn5 {
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    button::after {
+        position: absolute;
+        content: "";
+        top: calc( 50% - 0.5em );
+        right: 1.5em;
+        width: 0.7em;
+        height: 1.0em;
+        background: #fff;
+        clip-path: polygon( 0% 0%, 100% 50%, 0% 100% );
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.8;
+        }
+        button:hover::after {
+            transform-origin: 33% 50%;
+            animation: anim-btn5 2.0s ease;
+        }
+    }
+}
+
+@keyframes anim-btn5 {
+    0%  { transform: translateX(     0 ) scale( 1.0, 1.0 ) rotate( -720deg ); }
+    30% { transform: translateX( -20px ) scale( 2.0, 2.0 ) rotate( -720deg ); }
+    60% { transform: translateX( -20px ) scale( 2.0, 2.0 ) rotate(    0deg ); }
+    90% { transform: translateX(     0 ) scale( 1.0, 1.0 ) rotate(    0deg ); }
+}
+
+
+/**
+ * 影のあるボタン
+ */
+#btn6 {
     button {
         display: block;
         margin: 0 auto;
@@ -287,7 +336,7 @@ input, button, select, textarea {
 /**
  * へこむボタン
  */
-#btn6 {
+#btn7 {
     button {
         display: block;
         margin: 0 auto;
@@ -317,7 +366,7 @@ input, button, select, textarea {
 /**
  * 光沢のあるボタン
  */
-#btn7 {
+#btn8 {
     button {
         display: block;
         margin: 0 auto;
@@ -348,7 +397,7 @@ input, button, select, textarea {
 /**
  * シュッとするボタン
  */
-#btn8 {
+#btn9 {
     button {
         position: relative;
         display: block;
@@ -399,5 +448,73 @@ input, button, select, textarea {
             transform-origin: left top;
             transform: skewX( -30deg ) scaleX( 1.0 );
         }
+    }
+}
+
+
+/**
+ * ルパン三世なボタン
+ */
+#btn10 {
+    button {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: #009;
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        overflow: hidden;
+        cursor: pointer;
+        transition: opacity 0.5s;
+        animation: anim-btn10-1 0.5s ease 0s forwards;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            animation: anim-btn10-2 0.5s ease 0s forwards;
+        }
+    }
+}
+
+@keyframes anim-btn10-1 {
+    0%   {
+        opacity: 0.0;
+        transform: translateX( 300px ) skewX( -30deg );
+    }
+    60%  {
+        opacity: 0.8;
+        transform: translateX( -30px ) skewX( 45deg );
+    }
+    80%  {
+        opacity: 0.9;
+        transform: translateX( -30px ) skewX( 45deg );
+    }
+    100% {
+        opacity: 1.0;
+        transform: translateX( 0 ) skewX( 0deg );
+    }
+}
+
+@keyframes anim-btn10-2 {
+    0%   {
+        opacity: 1.0;
+        transform: translateY(     0 ) scale( 1.0, 1.0 );
+    }
+    40%   {
+        opacity: 0.8;
+        transform: translateY( -20px ) scale( 1.2, 1.2 );
+    }
+    80%  {
+        opacity: 0.6;
+        transform: translateY(     0 ) scale( 1.0, 1.0 );
+    }
+    100% {
+        opacity: 0.5;
     }
 }

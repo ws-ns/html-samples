@@ -43,6 +43,10 @@ body {
 }
 
 
+/**
+ * 点がぐるぐる
+ */
+
 #anim1 {
     animation: anim-rotate 2s linear infinite;
 }
@@ -76,6 +80,10 @@ body {
 }
 
 
+/**
+ * グラデーションの円がぐるぐる
+ */
+
 #anim2 {
     animation: anim-rotate 2s linear infinite;
 }
@@ -107,11 +115,50 @@ body {
 }
 
 
+/**
+ * 円がぐるぐる
+ */
+
 #anim3 {
-    animation: anim3 4s linear infinite;
+    animation: anim-rotate 2s linear infinite;
 }
 
 #anim3::before {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    width: calc( 60% + 8px );
+    height: calc( 60% + 8px );
+    top: calc( 50% - 30% - 4px );
+    left: calc( 50% - 30% - 4px );
+    background: conic-gradient( #f00 0deg, #f00 45deg, #300 45deg, #300 360deg );
+    border-radius: 100%;
+}
+
+#anim3::after {
+    position: absolute;
+    content: "";
+    margin: 0;
+    padding: 0;
+    width: 60%;
+    height: 60%;
+    top: 20%;
+    left: 20%;
+    background: #000;
+    border-radius: 100%;
+}
+
+
+/**
+ * 文字がぐるぐる
+ */
+
+#anim4 {
+    animation: anim4 4s linear infinite;
+}
+
+#anim4::before {
     position: absolute;
     content: "Now Loading";
     margin: 0;
@@ -128,7 +175,130 @@ body {
     place-items: center;
 }
 
-@keyframes anim3 {
+@keyframes anim4 {
       0% { transform: perspective(200px) rotateY(   0deg ); }
     100% { transform: perspective(200px) rotateY( 360deg ); }
+}
+
+
+/**
+ * 四角がうねうね
+ */
+
+#anim5 {
+}
+
+#anim5::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 20%;
+    border: 10px solid #fff;
+    border-radius: 8px;
+    transform: translate( -50%, -50% );
+    animation: anim5 2s ease-in-out infinite;
+}
+
+@keyframes anim5 {
+    0% {
+        width: 80%;
+        height: 20%;
+    }
+    50% {
+        width: 20%;
+        height: 80%;
+    }
+    100% {
+        width: 80%;
+        height: 20%;
+    }
+}
+
+
+/**
+ * 角がうにょうにょ
+ */
+
+#anim6 {
+}
+
+#anim6::before {
+    position: absolute;
+    content: "";
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border: 10px solid #fff;
+    animation: anim6 4s ease-in-out infinite;
+}
+
+@keyframes anim6 {
+    0% {
+        border-radius: 50% 10px 10px 10px;
+    }
+    12.5% {
+        border-radius: 50% 50% 10px 10px;
+    }
+    25% {
+        border-radius: 10px 50% 10px 10px;
+    }
+    37.5% {
+        border-radius: 10px 50% 50% 10px;
+    }
+    50% {
+        border-radius: 10px 10px 50% 10px;
+    }
+    62.5% {
+        border-radius: 10px 10px 50% 50%;
+    }
+    75% {
+        border-radius: 10px 10px 10px 50%;
+    }
+    87.5% {
+        border-radius: 50% 10px 10px 50%;
+    }
+    100% {
+        border-radius: 50% 10px 10px 10px;
+    }
+}
+
+
+/**
+ * ボールがバウンド
+ */
+
+#anim7 {
+}
+
+#anim7::before {
+    position: absolute;
+    content: "";
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    background: #fff;
+    border-radius: 100%;
+    animation: anim7 4s ease-in-out infinite;
+}
+
+@keyframes anim7 {
+    0% {
+        transform: translate( 0, -90% ) scale( 1.0, 0.2 );
+    }
+    25% {
+        transform: translate( 0, 0 ) scale( 0.2, 1.0 );
+    }
+    50% {
+        transform: translate( 0,  90% ) scale( 1.0, 0.2 );
+    }
+    75% {
+        transform: translate( 0, 0 ) scale( 0.2, 1.0 );
+    }
+    100% {
+        transform: translate( 0, -90% ) scale( 1.0, 0.2 );
+    }
 }

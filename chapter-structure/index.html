@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=yes" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <title> CSSで章立て - ほわいとソフトウェア </title>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link rel="stylesheet" href="./common.css" />
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-size: 16px;
+    }
+    body {
+        position: relative;
+        margin: 0;
+        padding: 1.0rem;
+        width: 100%;
+        font-family: 'Noto Sans JP', sans-serif;
+        background: #f8f8f8;
+    }
+    section {
+    }
+    h1 {
+        margin: 0 0 1.0em;
+        font-size: 1.5rem;
+        counter-reset: chap-h2 chap-h3 chap-h4 chap-h5;
+    }
+    h2 {
+        margin: 1.0em 0 0.5em;
+        padding: 0 0 0 1.0rem;
+        font-size: 1.3rem;
+        counter-reset: chap-h3 chap-h4 chap-h5;
+    }
+    h2::before {
+        counter-increment: chap-h2;
+        content: counter(chap-h2)". ";
+    }
+    h3 {
+        margin: 0.5em 0;
+        padding: 0 0 0 2.0rem;
+        font-size: 1.2rem;
+        counter-reset: chap-h4 chap-h5;
+    }
+    h3::before {
+        counter-increment: chap-h3;
+        content: counter(chap-h2)"."counter(chap-h3)". ";
+    }
+    h4 {
+        margin: 0.5em 0;
+        padding: 0 0 0 3.0rem;
+        font-size: 1.1rem;
+        counter-reset: chap-h5;
+    }
+    h4::before {
+        counter-increment: chap-h4;
+        content: counter(chap-h2)"."counter(chap-h3)"."counter(chap-h4)". ";
+    }
+    h5 {
+        margin: 0.5em 0;
+        padding: 0 0 0 4.0rem;
+        font-size: 1.0rem;
+    }
+    h5::before {
+        counter-increment: chap-h5;
+        content: counter(chap-h2)"."counter(chap-h3)"."counter(chap-h4)"."counter(chap-h5)". ";
+    }
+  </style>
+  <script src="./common.js"></script>
+</head>
+
+<body>
+
+  <h1>
+    CSSだけで章立て
+  </h1>
+
+  <section>
+
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h5>h5</h5>
+
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h3>h3</h3>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    <h4>h4</h4>
+    <h5>h5</h5>
+    <h5>h5</h5>
+    
+  </section>
+
+</body>
+
+</html>

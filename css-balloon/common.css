@@ -1,0 +1,193 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    width: 100%;
+    font-size: 16px;
+}
+body {
+    position: relative;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.0;
+    background: #f8f8f8;
+}
+h1 {
+    width: 100%;
+    font-size: 2.0rem;
+    font-weight: 700;
+}
+h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+.sample-area {
+    margin: 1.0rem auto 0;
+    padding: 0 1.0rem 1.0rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.0rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, 300px );
+}
+.sample-box {
+    position: relative;
+    padding: 1.0rem;
+    color: #000;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/**
+ * オーソドックス
+ */
+#balloon1 {
+    margin: 0 0 0 2.0rem;
+    width: calc( 100% - 2.0rem );
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 0.5em;
+}
+#balloon1::before {
+    position: absolute;
+    content: "";
+    top: calc( 50% - 0.6em );
+    right: 100%;
+    margin: 0;
+    padding: 0;
+    width: 1.0em;
+    height: 1.2em;
+    background: #000;
+    clip-path: polygon( 100% 0, 0 50%, 100% 100% );
+}
+#balloon1::after {
+    position: absolute;
+    content: "";
+    top: calc( 50% - 0.6em );
+    right: calc( 100% - 5px );
+    margin: 0;
+    padding: 0;
+    width: 1.0em;
+    height: 1.2em;
+    background: #fff;
+    clip-path: polygon( 100% 0, 0 50%, 100% 100% );
+}
+
+
+/**
+ * 角にしっぽ
+ */
+#balloon2 {
+    margin: 0 0 0 2.0rem;
+    width: calc( 100% - 2.0rem );
+    background: #fff;
+    border: 3px solid #000;
+}
+#balloon2::before {
+    position: absolute;
+    content: "";
+    top: -3px;
+    right: 100%;
+    margin: 0;
+    padding: 0;
+    width: 2.0em;
+    height: 1.5em;
+    background: #000;
+    clip-path: polygon( 0 0, 100% 0, 100% 100% );
+}
+#balloon2::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: calc( 100% - 9px );
+    margin: 0;
+    padding: 0;
+    width: 2.0em;
+    height: 1.5em;
+    background: #fff;
+    clip-path: polygon( 0 0, 100% 0, 100% 100% );
+}
+
+
+/**
+ * 泡泡
+ */
+#balloon3 {
+    margin: 0 0 0 4.0rem;
+    width: calc( 100% - 4.0rem );
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 0.5em;
+}
+#balloon3::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -1.8rem;
+    width: 1.0rem;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 100%;
+}
+#balloon3::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -3.0rem;
+    width: 0.6rem;
+    aspect-ratio: 1 / 1;
+    background: #fff;
+    border: 3px solid #000;
+    border-radius: 100%;
+}
+
+
+/**
+ * 枠線なし
+ */
+#balloon4 {
+    margin: 0 0 0 2.0rem;
+    width: calc( 100% - 2.0rem );
+    color: #fff;
+    background: #000;
+    border-radius: 0.5em;
+}
+#balloon4::before {
+    position: absolute;
+    content: "";
+    top: calc( 50% - 0.6em );
+    right: 100%;
+    margin: 0;
+    padding: 0;
+    width: 1.0em;
+    height: 1.2em;
+    background: #000;
+    clip-path: polygon( 100% 0, 0 50%, 100% 100% );
+}
+
+
+/**
+ * 角が直線
+ */
+#balloon5 {
+    margin: 0;
+    width: 100%;
+    color: #fff;
+    background: #000;
+    clip-path: polygon( 1.5rem 0, calc( 100% - 0.5rem ) 0, 100% 0.5rem, 100% calc( 100% - 0.5rem ), calc( 100% - 0.5rem ) 100%, 1.5rem 100%, 1.0rem calc( 100% - 0.5rem ), 1.0rem calc( 50% + 0.5rem), 0 50%, 1.0rem calc( 50% - 0.5rem ), 1.0rem 0.5rem );
+}

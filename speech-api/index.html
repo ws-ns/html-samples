@@ -48,7 +48,7 @@
     function runSpeech() {
         let elem = document.getElementById('contents');
         if ( !elem ) return;
-        const text = elem.textContent;
+        const text = elem.value;
         console.log(text);
         const speech = new SpeechSynthesisUtterance(text);
         console.log(speech);

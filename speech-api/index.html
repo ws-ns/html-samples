@@ -49,11 +49,14 @@
         let elem = document.getElementById('contents');
         if ( !elem ) return;
         const text = elem.textContent;
+        console.log(text);
         const speech = new SpeechSynthesisUtterance(text);
+        console.log(speech);
         window.speechSynthesis.speak(speech);
     }
     window.addEventListener('load', function() {
         const textToSpeak = 'Hello There';
+        console.log(textToSpeak);
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
         console.log(utterance);
         window.speechSynthesis.speak(utterance);

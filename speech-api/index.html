@@ -52,9 +52,10 @@
         const speech = new SpeechSynthesisUtterance(text);
         window.speechSynthesis.speak(speech);
     }
-    document.addEventListener('load', function() {
+    window.addEventListener('load', function() {
         const textToSpeak = 'Hello There';
         const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        console.log(utterance);
         window.speechSynthesis.speak(utterance);
     });
   </script>

@@ -34,6 +34,30 @@
     h1, h2, h3, h4, h5 {
         margin: 0.5em 0;
     }
+    main {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 800px;
+        line-height: 3.0;
+    }
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .flex div:nth-child(1) {
+        width: 5.0rem;
+        font-size: 1.0rem;
+        text-align: left;
+    }
+    .flex div:nth-child(2) {
+        width: 2.0rem;
+        font-size: 1.0rem;
+        text-align: right;
+    }
+    .flex div:nth-child(3) {
+        width: calc( 100% - 5.0rem - 2.0rem - 2.0rem );
+    }
     input[type="text"] {
         margin: 0;
         padding: 0.5em 1.0em;
@@ -43,15 +67,40 @@
         border: 1px solid #ccc;
         border-radius: 4px;
     }
+    input[type="text"]::placeholder {
+        color: #ccc;
+    }
+    input[type="range"] {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    button {
+        padding: 0.5em 1.0em;
+        color: #fff;
+        font-size: 1.0rem;
+        font-weight: 700;
+        background: #009;
+        outline: 0;
+        border: 0;
+        border-radius: 4px;
+    }
   </style>
   <script>
     function runSpeech() {
-        let elem = document.getElementById('contents');
-        if ( !elem ) return;
-        const text = elem.value;
+        let textElem = document.getElementById('contents');
+        if ( !textElem ) return;
+        let rateElem = document.getElementById('rate');
+        if ( !rateElem ) return;
+        let pitchElem = document.getElementById('pitch');
+        if ( !pitchElem ) return;
+
+        const text = textElem.value;
         console.log(text);
         const speech = new SpeechSynthesisUtterance(text);
         console.log(speech);
+        speech.rate  = rateElem.value;
+        speech.pitch = pitchElem.value;
         window.speechSynthesis.speak(speech);
     }
     window.addEventListener('load', function() {
@@ -61,16 +110,44 @@
         console.log(utterance);
         window.speechSynthesis.speak(utterance);
     });
+    document.addEventListener('DOMContentLoaded', function() {
+        let ranges = document.querySelectorAll('input[type="range"]');
+        if ( !ranges || ranges.length < 1 ) return;
+        for ( let range of ranges ) {
+            range.addEventListener('input', function() {
+                let div = this.parentElement.previousElementSibling;
+                if ( div ) {
+                    div.textContent = this.value;
+                }
+            });
+        }
+    });
   </script>
 </head>
 
 <body>
 
-  <h1>Web Speech API</h1>
+  <main>
 
-  <div><input type="text" id="contents" /></div>
+    <h1>Web Speech API</h1>
 
-  <div><button onclick="runSpeech()">Speech</button></div>
+    <div><input type="text" id="contents" placeholder="発声するテキストを入力" /></div>
+
+    <div class="flex">
+      <div>Rate</div>
+      <div>1.0</div>
+      <div><input type="range" min="0.5" max="2.0" value="1.0" step="0.1" id="rate" /></div>
+    </div>
+
+    <div class="flex">
+      <div>Pitch</div>
+      <div>1.0</div>
+      <div><input type="range" min="0.0" max="2.0" value="1.0" step="0.1" id="pitch" /></div>
+    </div>
+
+    <div><button onclick="runSpeech()">Run Speech</button></div>
+
+  </main>
 
 </body>
 

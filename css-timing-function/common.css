@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+}
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 16px;
+}
+body {
+    position: relative;
+    margin: 0;
+    padding: 40px;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #f8f8f8;
+}
+h1 {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-size: 2.0rem;
+    font-weight: 700;
+}
+h2 {
+    margin: 1.0rem 0 0;
+    padding: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+}
+
+.sample-box {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+    background: #ccc;
+    border-radius: 20px;
+}
+
+.sample-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 1 / 1;
+    height: 100%;
+    background: #009;
+    border-radius: 100%;
+    animation: anim-slide 2.0s ease 0s infinite forwards;
+}
+
+@keyframes anim-slide {
+    0%   { left: 0; }
+    100% { left: calc( 100% - 40px ); }
+}
+
+#sample-ease {
+    animation-timing-function: ease;
+}
+
+#sample-linear {
+    animation-timing-function: linear;
+}
+
+#sample-ease-in {
+    animation-timing-function: ease-in;
+}
+
+#sample-ease-out {
+    animation-timing-function: ease-out;
+}
+
+#sample-ease-in-out {
+    animation-timing-function: ease-in-out;
+}

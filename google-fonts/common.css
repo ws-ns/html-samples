@@ -1,11 +1,61 @@
 @charset "utf-8";
 
-/* @import url(http://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+body div {
+    font-size: max( 20px, 2.0vw );
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 0 0 0.5em;
+}
 
-/* @import url(http://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
-
-.samplefont {
-    font-size: 48px;
+.w100 {
+    font-weight: 100;
+}
+.w200 {
+    font-weight: 200;
+}
+.w300 {
+    font-weight: 300;
+}
+.w400 {
+    font-weight: 400;
+}
+.w500 {
+    font-weight: 500;
+}
+.w600 {
+    font-weight: 600;
+}
+.w700 {
     font-weight: 700;
-    font-family: 'Noto Serif JP', sans;	
+}
+.w800 {
+    font-weight: 800;
+}
+.w900 {
+    font-weight: 900;
+}
+
+.noto-sans {
+    font-family: 'Noto Sans JP', sans;
+}
+.noto-serif {
+    font-family: 'Noto Serif JP', sans-serif;
+}
+.m-plus {
+    font-family: 'M PLUS Rounded 1c', sans;
+}
+.kosugi-maru {
+    font-family: 'Kosugi Maru', sans;
+}
+.dela-gothic-one {
+    font-family: 'Dela Gothic One', sans;
+}
+.klee-one {
+    font-family: 'Klee One', sans;
+}
+.zen-kurenaido {
+    font-family: 'Zen Kurenaido', sans;
+}
+.yuji-syuku {
+    font-family: 'Yuji Syuku', sans;
 }

@@ -364,9 +364,37 @@ input, button, select, textarea {
 
 
 /**
- * 光沢のあるボタン
+ * グラデーションボタン
  */
 #btn8 {
+    button {
+        display: block;
+        margin: 0 auto;
+        padding: 0.8em 0;
+        width: 90%;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: linear-gradient( to bottom, #99f 0%, #00c 20%, #009 80%, #006 100% );
+        border-radius: 3.0rem;
+        box-shadow: 0.5rem 0.5rem 0.2rem #ccc;
+        cursor: pointer;
+        transition: opacity 0.5s;
+    }
+    @media ( hover: hover ) {
+        button:hover {
+            opacity: 0.5;
+        }
+    }
+}
+
+
+/**
+ * 光沢のあるボタン
+ */
+#btn9 {
     button {
         display: block;
         margin: 0 auto;
@@ -381,8 +409,8 @@ input, button, select, textarea {
         border-radius: 3.0rem;
         box-shadow:
             0.5rem 0.5rem 0.2rem #ccc,
-            0.2rem 0.2rem 0.4rem #fff6 inset,
-            -0.2rem -0.2rem 0.4rem #0039 inset;
+            0.3rem 0.3rem 0.4rem #fff9 inset,
+            -0.3rem -0.3rem 0.4rem #003c inset;
         cursor: pointer;
         transition: opacity 0.5s;
     }
@@ -397,7 +425,7 @@ input, button, select, textarea {
 /**
  * シュッとするボタン
  */
-#btn9 {
+#btn10 {
     button {
         position: relative;
         display: block;
@@ -455,7 +483,7 @@ input, button, select, textarea {
 /**
  * ルパン三世なボタン
  */
-#btn10 {
+#btn11 {
     .btn-wrap {
         margin: 0;
         padding: 0;
@@ -528,7 +556,7 @@ input, button, select, textarea {
 /**
  * きらりんボタン
  */
-#btn11 {
+#btn12 {
     .btn-wrap {
         margin: 0;
         padding: 0;
@@ -582,7 +610,7 @@ input, button, select, textarea {
 /**
  * ぼよよんボタン
  */
-#btn12 {
+#btn13 {
     .btn-wrap {
         margin: 0;
         padding: 0;

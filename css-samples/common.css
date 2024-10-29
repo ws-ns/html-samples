@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=白木); */
+/* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap&text=逋ｽ譛ｨ); */
 
 /* @import url(https://fonts.googleapis.com/css?family=Noto+Serif+JP:400,700&display=swap); */
 
@@ -41,7 +41,7 @@ body {
     opacity: 0.0;
     transform: scale( 1.0, 0.01 );
     transform-origin: center bottom;
-    animation: anim-sample-appear-1 5.0s infinite; /* forwards ���w�肷��ƏI����̏�Ԃ��Œ�ł��� */
+    animation: anim-sample-appear-1 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
 }
 
 @keyframes anim-sample-appear-1 {
@@ -76,7 +76,7 @@ body {
     opacity: 0.0;
     transform: scale( 0.01, 0.01 ) translate( 0px, -200px ) rotate( 0deg );
     transform-origin: center center;
-    animation: anim-sample-appear-2 5.0s infinite; /* forwards ���w�肷��ƏI����̏�Ԃ��Œ�ł��� */
+    animation: anim-sample-appear-2 5.0s infinite; /* forwards を指定すると終了後の状態を固定できる */
 }
 
 @keyframes anim-sample-appear-2 {
@@ -469,4 +469,11 @@ body {
     100% {
         left: -100%;
     }
+}
+
+#css-sample-gradient border {
+    padding: 1.0em 2.0em;
+    border: 10px solid;
+    border-image: linear-gradient( yellow, blue ) 1;
+    clip-path: inset( 0 round 10px );
 }

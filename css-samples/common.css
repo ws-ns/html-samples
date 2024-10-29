@@ -472,7 +472,9 @@ body {
 }
 
 #css-sample-gradient-border {
+    margin: 4.0rem auto;
     padding: 1.0em 2.0em;
+    width: max-content;
     border: 10px solid;
     border-image: linear-gradient( yellow, blue ) 1;
     clip-path: inset( 0 round 10px );

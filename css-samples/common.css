@@ -471,7 +471,7 @@ body {
     }
 }
 
-#css-sample-gradient border {
+#css-sample-gradient-border {
     padding: 1.0em 2.0em;
     border: 10px solid;
     border-image: linear-gradient( yellow, blue ) 1;

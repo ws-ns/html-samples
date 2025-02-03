@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text Outline - 文字の縁取り</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
+
+    <style>
+      * {
+          box-sizing: border-box;
+      }
+
+      body {
+          margin: 0;
+          padding: 0;
+          font-size: 18px;
+          font-family: 'Noto Sans JP', sans-serif;
+      }
+      main {
+          margin: 0 auto;
+          padding: 40px 0;
+          width: 100%;
+          max-width: 800px;
+      }
+
+      /* 疑似要素で重ねる */
+      .outline1 {
+          position: relative;
+          margin: 0 auto;
+          padding: 0;
+          width: max-content;
+          color: #000099;
+          font-size: 40px;
+          font-weight: 700;
+          -webkit-text-stroke: 8px #000099;
+          text-stroke: 8px #000099;
+          line-height: 1;
+          letter-spacing: 0.1em;
+          z-index: 1;
+      }
+      .outline1::after {
+          position: absolute;
+          content: attr(data-str);
+          top: 0;
+          left: 0;
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: max-content;
+          color: #ffffff;
+          -webkit-text-stroke: 0;
+          text-stroke: 0;
+          z-index: 2;
+      }
+
+      /* span2つで重ねる */
+      .outline2 {
+          position: relative;
+          margin: 0 auto;
+          padding: 0;
+          width: max-content;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.1em;
+      }
+      .outline2 > span:nth-child(1) {
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #000099;
+          -webkit-text-stroke: 8px #000099;
+          text-stroke: 8px #000099;
+          z-index: 1;
+      }
+      .outline2 > span:nth-child(2) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #ffffff;
+          z-index: 2;
+      }
+
+      /* ちょっとずらして立体感 */
+      .outline3 {
+          position: relative;
+          margin: 0 auto;
+          padding: 0;
+          width: max-content;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.1em;
+      }
+      .outline3 > span:nth-child(1) {
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #000099;
+          -webkit-text-stroke: 8px #000099;
+          text-stroke: 8px #000099;
+          z-index: 1;
+      }
+      .outline3 > span:nth-child(2) {
+          position: absolute;
+          top: -2px;
+          left: -2px;
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #ffffff;
+          z-index: 2;
+      }
+
+      /* 輪郭をわずかにぼかす */
+      .outline4 {
+          position: relative;
+          margin: 0 auto;
+          padding: 0;
+          width: max-content;
+          font-size: 40px;
+          font-weight: 700;
+          line-height: 1;
+          letter-spacing: 0.1em;
+      }
+      .outline4 > span:nth-child(1) {
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #000099;
+          -webkit-text-stroke: 8px #000099;
+          text-stroke: 8px #000099;
+          z-index: 1;
+          filter: blur(1px);
+      }
+      .outline4 > span:nth-child(2) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: #ffffff;
+          z-index: 2;
+      }
+    </style>
+  </head>
+
+  <body id="top">
+
+    <main>
+
+      <div class="outline1" data-str="疑似要素で重ねる">疑似要素で重ねる</div>
+
+      <br>
+
+      <div class="outline2">
+        <span>span2つで重ねる（divでもいいよ）</span>
+        <span>span2つで重ねる（divでもいいよ）</span>
+      </div>
+
+      <br>
+
+      <div class="outline3">
+        <span>ちょっとずらして立体感</span>
+        <span>ちょっとずらして立体感</span>
+      </div>
+
+      <br>
+
+      <div class="outline4">
+        <span>輪郭をちょっとぼかす</span>
+        <span>輪郭をちょっとぼかす</span>
+      </div>
+
+    </main>
+
+  </body>
+
+</html>

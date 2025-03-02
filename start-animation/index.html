@@ -66,6 +66,12 @@
           height: 100vh;
           overflow: hidden;
           z-index: 999;
+          transform-origin: center top;
+          animation: anim-start-finish 0.01s linear 6.0s forwards;
+      }
+      @keyframes anim-start-finish {
+          0%   { transform: scaleY( 1.0 ); }
+          100% { transform: scaleY( 0.0 ); }
       }
       #start-anim-1 {
           position: absolute;

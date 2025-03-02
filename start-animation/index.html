@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Start Animation</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      html {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+      }
+      body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          color: var(--fg-color);
+          font-family: var(--font-gothic);
+          font-weight: 500;
+          line-height: 1.5;
+          background: #000;
+          opacity: 1.0;
+      }
+      .mv {
+          margin: 0 auto;
+          width: 100%;
+      }
+      .mv .mv-bg {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100vh;
+          height: 100dvh;
+      }
+      .mv .mv-bg img {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 100%;
+          vertical-align: middle;
+          object-fit: cover;
+      }
+
+      /* 開始アニメーション */
+      #main-contents {
+          opacity: 0.0;
+          animation: anim-start-main 2.0s ease-out 4.0s forwards;
+      }
+      @keyframes anim-start-main {
+          0%   { opacity: 0.0; background: #000; }
+          100% { opacity: 1.0; background: var(--bg-color); }
+      }
+      #start-animation {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100dvh;
+          height: 100vh;
+          overflow: hidden;
+          z-index: 999;
+      }
+      #start-anim-1 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          background: #000;
+          opacity: 1.0;
+          transform-origin: center top;
+          animation: anim-start-1 1.0s ease-out 5.0s forwards;
+      }
+      #start-anim-2 {
+          position: fixed;
+          top: 50%;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          background: #000;
+          opacity: 1.0;
+          transform-origin: center bottom;
+          animation: anim-start-1 1.0s ease-out 5.0s forwards;
+      }
+      @keyframes anim-start-1 {
+          0%   { opacity: 1.0; }
+          100% { opacity: 0.2; transform: scaleY( 0.0 ); }
+      }
+      #start-anim-3 {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: max-content;
+          color: #fff;
+          font-size: 10.0vw;
+          font-weight: 700;
+          translate: -50% -50%;
+          opacity: 0.0;
+          animation: anim-start-2 5.0s ease-in-out 0s forwards;
+      }
+      @keyframes anim-start-2 {
+          0%   { opacity: 0.0; }
+          20%  { opacity: 0.0; }
+          50%  { opacity: 1.0; }
+          70%  { opacity: 1.0; }
+          100% { opacity: 0.0; }
+      }
+    </style>
+  </head>
+
+  <body id="top">
+
+    <section id="main-contents">
+      <section class="mv">
+        <figure class="mv-bg">
+          <picture>
+            <img loading="eager" src="./sample-01.jpg" width="3840" height="2160" alt="" />
+          </picture>
+        </figure>
+      </section>
+    </section>
+
+    <section id="start-animation">
+      <div id="start-anim-1"></div>
+      <div id="start-anim-2"></div>
+      <div id="start-anim-3">
+        White Software
+      </div>
+    </section>
+
+  </body>
+
+</html>

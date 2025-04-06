@@ -59,6 +59,15 @@
           border: 2px solid rgba( 255, 0, 0, 0.5 );
           cursor: pointer;
       }
+      #map-wrap #map-highlight {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 0;
+          background: transparent;
+          border: 4px solid rgba( 255, 255, 0, 0.5 );
+      }
     </style>
     <script defer src="./image-map.js"></script>
   </head>
@@ -81,6 +90,7 @@
         <img id="map" loading="lazy" src="./map.png" width="6826" height="6826" alt="名古屋市交通局地下鉄マップ" />
       </figure>
       <div id="map-mark"></div>
+      <div id="map-highlight"></div>
     </div>
     <div class="caption">&copy 名古屋市交通局</div>
 

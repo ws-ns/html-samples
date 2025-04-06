@@ -12,12 +12,13 @@ var _g_ws_map_pos = [
  */
 document.addEventListener('DOMContentLoaded', function() {
 
-    let nowpos = document.getElementById('nowpos');
-    let result = document.getElementById('result');
-    let mark   = document.getElementById('map-mark');
-    let map = document.getElementById('map');
+    let nowpos    = document.getElementById('nowpos');
+    let result    = document.getElementById('result');
+    let mark      = document.getElementById('map-mark');
+    let highlight = document.getElementById('map-highlight');
+    let map       = document.getElementById('map');
 
-    if ( nowpos && result && mark && map ) {
+    if ( nowpos && result && mark && highlight && map ) {
 
         map.addEventListener('mousemove', function(e) {
             const mapW = map.offsetWidth;
@@ -30,14 +31,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let flag = false;
             _g_ws_map_pos.forEach( (arr) => {
-                // if ( xPos >= 36.4 && yPos >= 41.7 && xPos <= 42.2 && yPos <= 47.8 ) {
-                // }
                 if ( xPos >= arr[1] && yPos >= arr[2] && xPos <= arr[3] && yPos <= arr[4] ) {
                     flag = true;
+                    highlight.style.left = arr[1]+'%';
+                    highlight.style.top  = arr[2]+'%';
+                    highlight.style.width  = (arr[3]-arr[1])+'%';
+                    highlight.style.height = (arr[4]-arr[2])+'%';
                     return;
                 }
             });
             document.body.style.cursor = ( flag ? 'pointer' : 'auto' );
+            if ( !flag ) {
+                highlight.style.left = '0';
+                highlight.style.top  = '0';
+                highlight.style.width  = '0';
+                highlight.style.height = '0';
+            }
         });
 
         map.addEventListener('mouseleave', function(e) {
@@ -53,8 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const yPos = (100.0*y/mapH);
 
             _g_ws_map_pos.forEach( (arr) => {
-                // if ( xPos >= 36.4 && yPos >= 41.7 && xPos <= 42.2 && yPos <= 47.8 ) {
-                // }
                 if ( xPos >= arr[1] && yPos >= arr[2] && xPos <= arr[3] && yPos <= arr[4] ) {
                     result.textContent = arr[0];
 

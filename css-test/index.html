@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ws-balloon {
+        position: relative;
+        margin: 0 0 0 calc( 20px + min( 20vw, 160px ) );
+        padding: 20px;
+        width: calc( 100% - min( 20vw, 160px ) - 20px );
+        border: 8px solid #9abf00;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    .ws-balloon::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: calc( -20px - min( 20vw, 160px ) );
+        width: min( 20vw, 160px );
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background: url(./くまさん２.png) no-repeat center / contain;
+    }
+    .ws-balloon::after {
+        position: absolute;
+        content: "";
+        top: min( 2.5vw, 20px );
+        right: calc( 100% + 7px );
+        width: 20px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background: #9abf00;
+        clip-path: polygon( 0 50%, 100% 0, 100% 100% );
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="ws-balloon">
+    くまさんです
+  </div>
+
+</body>
+
+</html>

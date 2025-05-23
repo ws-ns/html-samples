@@ -7,9 +7,9 @@
   <style>
     .ws-balloon, .ws-balloon-l {
         position: relative;
-        margin: 40px 0 40px calc( 30px + min( 16vw, 120px ) );
+        margin: 40px 0 40px calc( min( 4vw, 30px ) + min( 16vw, 120px ) );
         padding: 20px;
-        width: calc( 100% - min( 16vw, 120px ) - 30px );
+        width: calc( 100% - min( 16vw, 120px ) - min( 4vw, 30px ) );
         min-height: min( 16vw, 120px );
         display: flex;
         align-items: center;
@@ -21,7 +21,7 @@
         position: absolute;
         content: "";
         top: 0;
-        left: calc( -30px - min( 16vw, 120px ) );
+        left: calc( - min( 4vw, 30px ) - min( 16vw, 120px ) );
         width: min( 16vw, 120px );
         height: auto;
         aspect-ratio: 1 / 1;
@@ -30,7 +30,7 @@
     .ws-balloon::after, .ws-balloon-l::after {
         position: absolute;
         content: "";
-        top: min( 2.5vw, 20px );
+        top: min( 2.6vw, 20px );
         right: calc( 100% + 2px );
         width: 20px;
         height: auto;
@@ -40,9 +40,9 @@
     }
     .ws-balloon-r {
         position: relative;
-        margin: 40px calc( 30px + min( 16vw, 120px ) ) 40px 0;
+        margin: 40px calc( min( 4vw, 30px ) + min( 16vw, 120px ) ) 40px 0;
         padding: 20px;
-        width: calc( 100% - min( 16vw, 120px ) - 30px );
+        width: calc( 100% - min( 16vw, 120px ) - min( 4vw, 30px ) );
         min-height: min( 16vw, 120px );
         display: flex;
         align-items: center;
@@ -54,7 +54,7 @@
         position: absolute;
         content: "";
         top: 0;
-        right: calc( -30px - min( 16vw, 120px ) );
+        right: calc( - min( 4vw, 30px ) - min( 16vw, 120px ) );
         width: min( 16vw, 120px );
         height: auto;
         aspect-ratio: 1 / 1;
@@ -64,7 +64,7 @@
     .ws-balloon-r::after {
         position: absolute;
         content: "";
-        top: min( 2.5vw, 20px );
+        top: min( 2.6vw, 20px );
         left: calc( 100% + 2px );
         width: 20px;
         height: auto;

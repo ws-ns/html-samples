@@ -5,26 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .ws-balloon {
+    .ws-balloon, .ws-balloon-l {
         position: relative;
-        margin: 0 0 0 calc( 20px + min( 20vw, 160px ) );
+        margin: 40px 0 40px calc( 30px + min( 16vw, 120px ) );
         padding: 20px;
-        width: calc( 100% - min( 20vw, 160px ) - 20px );
+        width: calc( 100% - min( 16vw, 120px ) - 30px );
+        min-height: min( 16vw, 120px );
+        display: flex;
+        align-items: center;
         border: 8px solid #9abf00;
         border-radius: 10px;
         box-sizing: border-box;
     }
-    .ws-balloon::before {
+    .ws-balloon::before, .ws-balloon-l::before {
         position: absolute;
         content: "";
         top: 0;
-        left: calc( -20px - min( 20vw, 160px ) );
-        width: min( 20vw, 160px );
+        left: calc( -30px - min( 16vw, 120px ) );
+        width: min( 16vw, 120px );
         height: auto;
         aspect-ratio: 1 / 1;
         background: url(./くまさん２.png) no-repeat center / contain;
     }
-    .ws-balloon::after {
+    .ws-balloon::after, .ws-balloon-l::after {
         position: absolute;
         content: "";
         top: min( 2.5vw, 20px );
@@ -35,12 +38,55 @@
         background: #9abf00;
         clip-path: polygon( 0 50%, 100% 0, 100% 100% );
     }
+    .ws-balloon-r {
+        position: relative;
+        margin: 40px calc( 30px + min( 16vw, 120px ) ) 40px 0;
+        padding: 20px;
+        width: calc( 100% - min( 16vw, 120px ) - 30px );
+        min-height: min( 16vw, 120px );
+        display: flex;
+        align-items: center;
+        border: 8px solid #9abf00;
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
+    .ws-balloon-r::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: calc( -30px - min( 16vw, 120px ) );
+        width: min( 16vw, 120px );
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background: url(./くまさん２.png) no-repeat center / contain;
+        scale: -1.0 1.0;
+    }
+    .ws-balloon-r::after {
+        position: absolute;
+        content: "";
+        top: min( 2.5vw, 20px );
+        left: calc( 100% + 7px );
+        width: 20px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        background: #9abf00;
+        clip-path: polygon( 0 0, 100% 50%, 0 100% );
+    }
   </style>
 </head>
 
 <body>
   
-  <div class="ws-balloon">
+  <div class="ws-balloon-l">
+    くまさんです
+  </div>
+  <div class="ws-balloon-l">
+    くまさんです
+  </div>
+  <div class="ws-balloon-r">
+    くまさんです
+  </div>
+  <div class="ws-balloon-r">
     くまさんです
   </div>
 

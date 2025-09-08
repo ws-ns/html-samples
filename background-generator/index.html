@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>背景画像ジェネレーター</title>
+    <!-- Tailwind CSSの読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Noto Sans JP) の読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Noto Sans JPをデフォルトフォントに設定 */
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        /* Canvasの表示サイズを固定 */
+        #canvas-container canvas {
+            width: 960px;
+            height: 540px;
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center min-h-screen p-4 md:p-8">
+
+    <div class="w-full max-w-7xl">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-cyan-400">画像ジェネレーター</h1>
+            <p class="text-gray-400 mt-2">背景とテキストを組み合わせて画像を生成し、ダウンロードできます。</p>
+        </header>
+
+        <main class="flex flex-col lg:flex-row gap-8">
+
+            <!-- 左側: コントロールパネル -->
+            <div class="w-full lg:w-1/3 bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 border-b-2 border-cyan-500 pb-2">設定</h2>
+
+                <!-- 1. 背景画像の選択 -->
+                <div class="mb-6">
+                    <label class="block text-lg font-semibold mb-3 text-gray-300">1. 背景を選択</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <input type="radio" id="bg1" name="background" value="./bg1.jpg" class="hidden peer" checked>
+                            <label for="bg1" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
+                                <img src="https://images.unsplash.com/photo-1483728642387-6c351b4013de?q=80&w=300&h=168&auto=format&fit=crop" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">佇む樹木</p>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="bg2" name="background" value="./bg2.jpg" class="hidden peer">
+                            <label for="bg2" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
+                                <img src="https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=300&h=168&auto=format&fit=crop" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">波打ち際</p>
+                            </label>
+                        </div>
+                         <div>
+                            <input type="radio" id="bg3" name="background" value="./bg3.jpg" class="hidden peer">
+                            <label for="bg3" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
+                                <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=300&h=168&auto=format&fit=crop" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">リゾート</p>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="bg4" name="background" value="./bg4.jpg" class="hidden peer">
+                            <label for="bg4" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723a9ce6890?q=80&w=300&h=168&auto=format&fit=crop" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">山の湖</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. テキストの入力 -->
+                <div class="mb-6">
+                    <label for="name" class="block text-lg font-semibold mb-3 text-gray-300">2. テキストを入力</label>
+                    <input type="text" id="name" placeholder="名前" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
+                    <input type="text" id="department" placeholder="部署" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
+                </div>
+
+                <!-- 3. 文字の位置を選択 -->
+                <div class="mb-8">
+                    <label for="position" class="block text-lg font-semibold mb-3 text-gray-300">3. テキストの位置を選択</label>
+                    <select id="position" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
+                        <option value="top-left">左上</option>
+                        <option value="top-center">上</option>
+                        <option value="top-right">右上</option>
+                        <option value="middle-left">左</option>
+                        <option value="center" selected>真ん中</option>
+                        <option value="middle-right">右</option>
+                        <option value="bottom-left">左下</option>
+                        <option value="bottom-center">下</option>
+                        <option value="bottom-right">右下</option>
+                    </select>
+                </div>
+
+                <!-- 4. ダウンロード -->
+                <div>
+                    <label class="block text-lg font-semibold mb-3 text-gray-300">4. 画像を保存</label>
+                    <div class="flex gap-4">
+                        <button id="download-png" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-md">
+                            PNGで保存
+                        </button>
+                        <button id="download-jpg" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded-lg transition-colors shadow-md">
+                            JPGで保存
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右側: Canvasプレビュー -->
+            <div class="w-full lg:w-2/3 flex items-center justify-center bg-gray-800 p-4 rounded-2xl shadow-lg border border-gray-700" id="canvas-container">
+                <canvas id="main-canvas"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM要素の取得
+            const canvas = document.getElementById('main-canvas');
+            const ctx = canvas.getContext('2d');
+            const nameInput = document.getElementById('name');
+            const departmentInput = document.getElementById('department');
+            const positionSelect = document.getElementById('position');
+            const backgroundRadios = document.querySelectorAll('input[name="background"]');
+            const downloadPngBtn = document.getElementById('download-png');
+            const downloadJpgBtn = document.getElementById('download-jpg');
+
+            // Canvasの解像度を設定 (1920x1080)
+            const CANVAS_WIDTH = 1920;
+            const CANVAS_HEIGHT = 1080;
+            canvas.width = CANVAS_WIDTH;
+            canvas.height = CANVAS_HEIGHT;
+
+            // 状態管理用のオブジェクト
+            const state = {
+                backgroundImage: new Image(),
+                name: '',
+                department: '',
+                position: 'center',
+                get selectedBackgroundUrl() {
+                    return document.querySelector('input[name="background"]:checked').value;
+                }
+            };
+            
+            // 画像のクロスオリジン問題を回避
+            state.backgroundImage.crossOrigin = "Anonymous";
+
+            // Canvasを再描画するメイン関数
+            function redrawCanvas() {
+                // 背景画像の読み込みと描画
+                state.backgroundImage.src = state.selectedBackgroundUrl;
+                
+                state.backgroundImage.onload = () => {
+                    // 1. 背景を描画
+                    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                    ctx.drawImage(state.backgroundImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+                    // 2. テキストを描画
+                    drawText();
+                };
+                
+                state.backgroundImage.onerror = () => {
+                    // 画像の読み込みに失敗した場合のフォールバック
+                    ctx.fillStyle = '#333';
+                    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                    ctx.fillStyle = 'white';
+                    ctx.font = '60px "Noto Sans JP", sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText('画像の読み込みに失敗しました', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+                }
+            }
+
+            // テキストを描画するヘルパー関数
+            function drawText() {
+                // テキストスタイル設定
+                ctx.fillStyle = 'white';
+                ctx.strokeStyle = 'rgba(0, 0, 0, 0.5)'; // テキストに少し影をつける
+                ctx.lineWidth = 8;
+                ctx.font = `bold 72px "Noto Sans JP", sans-serif`;
+
+                const { x, textAlign } = getXPosition();
+                const { y, textBaseline } = getYPosition();
+                
+                ctx.textAlign = textAlign;
+                ctx.textBaseline = textBaseline;
+
+                const nameText = state.name || '';
+                const departmentText = state.department || '';
+
+                const lineGap = 100; // 名前と部署の間の行間
+                let nameY = y;
+                let departmentY = y;
+                
+                // 複数行の場合のY座標を調整
+                if(nameText && departmentText){
+                    if(textBaseline === 'middle'){
+                       nameY = y - lineGap / 2;
+                       departmentY = y + lineGap / 2;
+                    } else if(textBaseline === 'top'){
+                       nameY = y;
+                       departmentY = y + lineGap;
+                    } else if(textBaseline === 'bottom'){
+                       nameY = y - lineGap;
+                       departmentY = y;
+                    }
+                }
+                
+                // 描画
+                if (nameText) {
+                    ctx.strokeText(nameText, x, nameY);
+                    ctx.fillText(nameText, x, nameY);
+                }
+                if (departmentText) {
+                    ctx.strokeText(departmentText, x, departmentY);
+                    ctx.fillText(departmentText, x, departmentY);
+                }
+            }
+
+            // X座標とtextAlignを取得
+            function getXPosition() {
+                const margin = 80;
+                const position = state.position;
+                if (position.includes('left')) {
+                    return { x: margin, textAlign: 'left' };
+                } else if (position.includes('right')) {
+                    return { x: CANVAS_WIDTH - margin, textAlign: 'right' };
+                } else { // center
+                    return { x: CANVAS_WIDTH / 2, textAlign: 'center' };
+                }
+            }
+
+            // Y座標とtextBaselineを取得
+            function getYPosition() {
+                const margin = 80;
+                const position = state.position;
+                if (position.includes('top')) {
+                    return { y: margin, textBaseline: 'top' };
+                } else if (position.includes('bottom')) {
+                    return { y: CANVAS_HEIGHT - margin, textBaseline: 'bottom' };
+                } else { // middle
+                    return { y: CANVAS_HEIGHT / 2, textBaseline: 'middle' };
+                }
+            }
+            
+            // ダウンロード処理
+            function downloadImage(format) {
+                const link = document.createElement('a');
+                const mimeType = format === 'png' ? 'image/png' : 'image/jpeg';
+                const extension = format === 'png' ? 'png' : 'jpg';
+                
+                // JPGの場合、背景を白で塗りつぶす（透過を防ぐため）
+                if (format === 'jpg') {
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = CANVAS_WIDTH;
+                    tempCanvas.height = CANVAS_HEIGHT;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.fillStyle = '#FFFFFF';
+                    tempCtx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+                    tempCtx.drawImage(canvas, 0, 0);
+                    link.href = tempCanvas.toDataURL(mimeType, 0.9);
+                } else {
+                     link.href = canvas.toDataURL(mimeType);
+                }
+                
+                link.download = `generated-image-${Date.now()}.${extension}`;
+                link.click();
+            }
+
+            // イベントリスナーの設定
+            backgroundRadios.forEach(radio => {
+                radio.addEventListener('change', redrawCanvas);
+            });
+
+            nameInput.addEventListener('input', (e) => {
+                state.name = e.target.value;
+                redrawCanvas();
+            });
+
+            departmentInput.addEventListener('input', (e) => {
+                state.department = e.target.value;
+                redrawCanvas();
+            });
+
+            positionSelect.addEventListener('change', (e) => {
+                state.position = e.target.value;
+                redrawCanvas();
+            });
+            
+            downloadPngBtn.addEventListener('click', () => downloadImage('png'));
+            downloadJpgBtn.addEventListener('click', () => downloadImage('jpg'));
+
+            // 初期描画
+            redrawCanvas();
+        });
+    </script>
+</body>
+</html>

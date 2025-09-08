@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Image Generator</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+      /* Set base font and Meiryo as a fallback */
+      body {
+          font-family: 'Inter', 'Noto Sans JP', 'Meiryo', sans-serif;
+      }
+      /* Custom styling for radio buttons for a better look */
+      .custom-radio-label {
+          transition: all 0.2s ease-in-out;
+      }
+      input[type="radio"]:checked + .custom-radio-label {
+          border-color: #3b82f6; /* blue-500 */
+          box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 flex items-center justify-center min-h-screen p-4">
+
+    <div class="container mx-auto max-w-7xl">
+      <header class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Canvas画像ジェネレーター</h1>
+        <p class="text-gray-600 mt-2">背景とテキストを組み合わせて、オリジナルの画像を生成・ダウンロードできます。</p>
+      </header>
+
+      <main class="flex flex-col lg:flex-row gap-8">
+        <!-- === Controls Panel === -->
+        <div class="w-full lg:w-1/3 bg-white p-6 rounded-xl shadow-lg space-y-8">
+          <!-- 1. Background Image Selection -->
+          <fieldset>
+            <legend class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">1. 背景を選択</legend>
+            <div id="bg-selector" class="grid grid-cols-2 gap-4">
+              <!-- Radio buttons will be inserted here by JavaScript -->
+            </div>
+          </fieldset>
+
+          <!-- 2. Text Input -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">2. テキストを入力</h2>
+            <div class="space-y-4">
+              <div>
+                <label for="nameInput" class="block text-sm font-medium text-gray-700 mb-1">名前</label>
+                <input type="text" id="nameInput" value="山田 太郎" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition">
+              </div>
+              <div>
+                <label for="deptInput" class="block text-sm font-medium text-gray-700 mb-1">部署・役職</label>
+                <input type="text" id="deptInput" value="開発部 リードエンジニア" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 transition">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Download -->
+          <div>
+            <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">3. ダウンロード</h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button id="downloadPng" class="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
+                PNG形式で保存
+              </button>
+              <button id="downloadJpg" class="w-full bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition-colors duration-300 shadow-md">
+                JPG形式で保存
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- === Canvas Display === -->
+        <div class="w-full lg:w-2/3 flex items-center justify-center bg-gray-200 p-4 rounded-xl shadow-inner">
+          <canvas id="mainCanvas" width="1920" height="1080" class="rounded-md shadow-lg" style="width: 960px; height: 540px; max-width: 100%; aspect-ratio: 16/9;"></canvas>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          // === DOM Elements ===
+          const canvas = document.getElementById('mainCanvas');
+          const ctx = canvas.getContext('2d');
+          const nameInput = document.getElementById('nameInput');
+          const deptInput = document.getElementById('deptInput');
+          const downloadPngBtn = document.getElementById('downloadPng');
+          const downloadJpgBtn = document.getElementById('downloadJpg');
+          const bgSelector = document.getElementById('bg-selector');
+
+          // === Image Data ===
+          const backgroundImages = [
+              { id: 'bg1', name: '夜の都市',   url: './bg1.jpg' },
+              { id: 'bg2', name: '穏やかな湖', url: './bg2.jpg' },
+              { id: 'bg3', name: '抽象的な波', url: './bg3.jpg' },
+              { id: 'bg4', name: '森の道',     url: './bg4.jpg' }
+          ];
+
+          // === State ===
+          let currentImage = new Image();
+          currentImage.crossOrigin = 'Anonymous'; // Required for loading images from other domains
+
+          // === Functions ===
+
+          // Function to generate radio buttons for background selection
+          function populateBackgroundSelector() {
+              backgroundImages.forEach((bg, index) => {
+                  const div = document.createElement('div');
+                  const input = document.createElement('input');
+                  input.type = 'radio';
+                  input.name = 'background';
+                  input.id = bg.id;
+                  input.value = bg.url;
+                  input.className = 'sr-only'; // Screen reader only, hide the actual radio button
+                  if (index === 0) {
+                      input.checked = true;
+                  }
+                  input.addEventListener('change', redrawCanvas);
+
+                  const label = document.createElement('label');
+                  label.htmlFor = bg.id;
+                  label.className = 'custom-radio-label cursor-pointer block border-2 border-gray-300 rounded-lg p-2 text-center hover:border-blue-400';
+                  label.textContent = bg.name;
+                  
+                  div.appendChild(input);
+                  div.appendChild(label);
+                  bgSelector.appendChild(div);
+              });
+          }
+
+          // Main function to draw everything on the canvas
+          function redrawCanvas() {
+              const selectedRadio = document.querySelector('input[name="background"]:checked');
+              if (!selectedRadio) return;
+
+              const imageUrl = selectedRadio.value;
+
+              currentImage.src = imageUrl;
+              currentImage.onload = () => {
+                  // 1. Clear and draw background image
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                  ctx.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
+
+                  // 2. Prepare text styling
+                  const nameText = nameInput.value;
+                  const deptText = deptInput.value;
+
+                  ctx.fillStyle = 'white';
+                  ctx.textAlign = 'right';
+                  ctx.textBaseline = 'bottom';
+                  
+                  // Add a shadow for better readability
+                  ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
+                  ctx.shadowBlur = 8;
+                  ctx.shadowOffsetX = 2;
+                  ctx.shadowOffsetY = 2;
+
+                  // 3. Draw department text
+                  ctx.font = "bold 60px 'Meiryo', sans-serif";
+                  ctx.fillText(deptText, canvas.width - 60, canvas.height - 60);
+
+                  // 4. Draw name text
+                  ctx.font = "bold 90px 'Meiryo', sans-serif";
+                  ctx.fillText(nameText, canvas.width - 60, canvas.height - 130);
+                  
+                  // Reset shadow for other drawings if any
+                  ctx.shadowColor = 'transparent';
+                  ctx.shadowBlur = 0;
+                  ctx.shadowOffsetX = 0;
+                  ctx.shadowOffsetY = 0;
+              };
+              currentImage.onerror = () => {
+                  ctx.clearRect(0, 0, canvas.width, canvas.height);
+                  ctx.fillStyle = 'black';
+                  ctx.font = "30px sans-serif";
+                  ctx.textAlign = 'center';
+                  ctx.fillText('画像の読み込みに失敗しました。', canvas.width / 2, canvas.height / 2);
+              }
+          }
+          
+          // Function to handle download logic
+          function downloadCanvas(format) {
+              const link = document.createElement('a');
+              if (format === 'png') {
+                  link.download = 'generated-image.png';
+                  link.href = canvas.toDataURL('image/png');
+              } else { // jpg
+                  // For JPG, we need to draw a background color first if the source can be transparent
+                  // In our case, the background image covers everything, so it's not strictly necessary,
+                  // but it's good practice.
+                  const tempCanvas = document.createElement('canvas');
+                  tempCanvas.width = canvas.width;
+                  tempCanvas.height = canvas.height;
+                  const tempCtx = tempCanvas.getContext('2d');
+                  tempCtx.fillStyle = '#FFFFFF'; // White background
+                  tempCtx.fillRect(0, 0, tempCanvas.width, tempCanvas.height);
+                  tempCtx.drawImage(canvas, 0, 0);
+
+                  link.download = 'generated-image.jpg';
+                  link.href = tempCanvas.toDataURL('image/jpeg', 0.9); // 0.9 is quality
+              }
+              
+              // Trigger download
+              link.click();
+          }
+
+          // === Event Listeners ===
+          nameInput.addEventListener('input', redrawCanvas);
+          deptInput.addEventListener('input', redrawCanvas);
+          downloadPngBtn.addEventListener('click', () => downloadCanvas('png'));
+          downloadJpgBtn.addEventListener('click', () => downloadCanvas('jpg'));
+
+          // === Initial Load ===
+          populateBackgroundSelector();
+          redrawCanvas(); 
+      });
+    </script>
+  </body>
+</html>

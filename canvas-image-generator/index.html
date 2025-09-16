@@ -43,31 +43,38 @@
                     <label class="block text-lg font-semibold mb-3 text-gray-300">1. 背景を選択</label>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <input type="radio" id="bg1" name="background" value="./bg1.jpg" class="hidden peer" checked>
+                            <input type="radio" id="bg1" name="background" value="./htc-bg1.png" class="hidden peer" checked>
                             <label for="bg1" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
-                                <img src="./bg1.jpg" class="rounded-md w-full h-auto object-cover">
-                                <p class="text-sm text-center mt-1">佇む樹木</p>
+                                <img src="./htc-bg1.png" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">オフィス1</p>
                             </label>
                         </div>
                         <div>
-                            <input type="radio" id="bg2" name="background" value="./bg2.jpg" class="hidden peer">
+                            <input type="radio" id="bg2" name="background" value="./htc-bg2.png" class="hidden peer">
                             <label for="bg2" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
-                                <img src="./bg2.jpg" class="rounded-md w-full h-auto object-cover">
-                                <p class="text-sm text-center mt-1">波打ち際</p>
+                                <img src="./htc-bg2.png" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">オフィス2</p>
                             </label>
                         </div>
                          <div>
-                            <input type="radio" id="bg3" name="background" value="./bg3.jpg" class="hidden peer">
+                            <input type="radio" id="bg3" name="background" value="./htc-bg3.png" class="hidden peer">
                             <label for="bg3" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
-                                <img src="./bg3.jpg" class="rounded-md w-full h-auto object-cover">
-                                <p class="text-sm text-center mt-1">リゾート</p>
+                                <img src="./htc-bg3.png" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">グラフィック1</p>
                             </label>
                         </div>
                         <div>
-                            <input type="radio" id="bg4" name="background" value="./bg4.jpg" class="hidden peer">
+                            <input type="radio" id="bg4" name="background" value="./htc-bg4.png" class="hidden peer">
                             <label for="bg4" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
-                                <img src="./bg4.jpg" class="rounded-md w-full h-auto object-cover">
-                                <p class="text-sm text-center mt-1">山の湖</p>
+                                <img src="./htc-bg4.png" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">グラフィック2</p>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="bg5" name="background" value="./htc-bg5.png" class="hidden peer">
+                            <label for="bg5" class="cursor-pointer border-2 border-gray-600 rounded-lg p-1 block peer-checked:border-cyan-400 hover:border-cyan-300 transition-all">
+                                <img src="./htc-bg5.png" class="rounded-md w-full h-auto object-cover">
+                                <p class="text-sm text-center mt-1">工場</p>
                             </label>
                         </div>
                     </div>
@@ -76,17 +83,18 @@
                 <!-- 2. テキストの入力 -->
                 <div class="mb-6">
                     <label for="name" class="block text-lg font-semibold mb-3 text-gray-300">2. テキストを入力</label>
+                    <input type="text" id="company" placeholder="会社名" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
+                    <input type="text" id="department" placeholder="部署" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
                     <input type="text" id="name" placeholder="名前" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 mb-3 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
-                    <input type="text" id="department" placeholder="部署" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
                 </div>
 
                 <!-- 3. 文字の位置を選択 -->
                 <div class="mb-8">
                     <label for="position" class="block text-lg font-semibold mb-3 text-gray-300">3. テキストの位置を選択</label>
                     <select id="position" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all">
-                        <option value="top-left">左上</option>
+                        <option value="top-left" selected>左上</option>
                         <option value="top-center">上</option>
-                        <option value="top-right" selected>右上</option>
+                        <option value="top-right">右上</option>
                         <option value="middle-left">左</option>
                         <option value="center">真ん中</option>
                         <option value="middle-right">右</option>
@@ -122,8 +130,9 @@
             // DOM要素の取得
             const canvas = document.getElementById('main-canvas');
             const ctx = canvas.getContext('2d');
-            const nameInput = document.getElementById('name');
+            const companyInput = document.getElementById('company');
             const departmentInput = document.getElementById('department');
+            const nameInput = document.getElementById('name');
             const positionSelect = document.getElementById('position');
             const backgroundRadios = document.querySelectorAll('input[name="background"]');
             const downloadPngBtn = document.getElementById('download-png');
@@ -189,35 +198,46 @@
                 ctx.textAlign = textAlign;
                 ctx.textBaseline = textBaseline;
 
-                const nameText = state.name || '';
+                const companyText    = state.company || '';
                 const departmentText = state.department || '';
+                const nameText       = state.name || '';
 
                 const lineGap = 100; // 名前と部署の間の行間
-                let nameY = y;
+                let companyY = y;
                 let departmentY = y;
+                let nameY = y;
                 
                 // 複数行の場合のY座標を調整
-                if(nameText && departmentText){
-                    if(textBaseline === 'middle'){
-                       nameY = y - lineGap / 2;
-                       departmentY = y + lineGap / 2;
-                    } else if(textBaseline === 'top'){
-                       nameY = y;
-                       departmentY = y + lineGap;
-                    } else if(textBaseline === 'bottom'){
-                       nameY = y - lineGap;
+                if( companyText && departmentText && nameText ){
+                    if ( textBaseline === 'middle' ) {
+                       companyY    = y - lineGap;
                        departmentY = y;
+                       nameY       = y + lineGap;
+                    }
+                    else if ( textBaseline === 'top' ) {
+                        companyY    = y;
+                        departmentY = y + lineGap;
+                        nameY       = y + lineGap * 2;
+                    }
+                    else if ( textBaseline === 'bottom' ) {
+                        companyY    = y - lineGap * 2;
+                        departmentY = y - lineGap;
+                        nameY       = y;
                     }
                 }
                 
                 // 描画
-                if (nameText) {
-                    ctx.strokeText(nameText, x, nameY);
-                    ctx.fillText(nameText, x, nameY);
+                if ( companyText ) {
+                    ctx.strokeText(companyText, x, companyY);
+                    ctx.fillText(companyText, x, companyY);
                 }
                 if (departmentText) {
                     ctx.strokeText(departmentText, x, departmentY);
                     ctx.fillText(departmentText, x, departmentY);
+                }
+                if ( nameText ) {
+                    ctx.strokeText(nameText, x, nameY);
+                    ctx.fillText(nameText, x, nameY);
                 }
             }
 
@@ -276,13 +296,18 @@
                 radio.addEventListener('change', redrawCanvas);
             });
 
-            nameInput.addEventListener('input', (e) => {
-                state.name = e.target.value;
+            companyInput.addEventListener('input', (e) => {
+                state.company = e.target.value;
                 redrawCanvas();
             });
 
             departmentInput.addEventListener('input', (e) => {
                 state.department = e.target.value;
+                redrawCanvas();
+            });
+
+            nameInput.addEventListener('input', (e) => {
+                state.name = e.target.value;
                 redrawCanvas();
             });
 

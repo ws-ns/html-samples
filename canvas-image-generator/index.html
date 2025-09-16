@@ -147,9 +147,10 @@
             // 状態管理用のオブジェクト
             const state = {
                 backgroundImage: new Image(),
-                name: '',
+                company: '',
                 department: '',
-                position: 'center',
+                name: '',
+                position: 'top-left',
                 get selectedBackgroundUrl() {
                     return document.querySelector('input[name="background"]:checked').value;
                 }
@@ -325,3 +326,4 @@
     </script>
 </body>
 </html>
+
